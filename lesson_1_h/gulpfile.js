@@ -4,6 +4,7 @@ var sass                = require('gulp-sass');
 var autoprefixer        = require('gulp-autoprefixer');
 var concatCss           = require('gulp-concat-css');
 var ftp                 = require('gulp-ftp');
+var jshint              = require('jshint');
 
 
 

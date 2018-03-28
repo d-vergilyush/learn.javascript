@@ -1,14 +1,13 @@
-var budget = prompt ("Ваш бюджет? (в рублях)");
-var shopName = prompt ("Название вашего магазина?");
+var money = prompt ("Ваш бюджет? (в рублях)");
+var name = prompt ("Название вашего магазина?");
 mainList = {
-		budget,
-		shopName,
+		budget: money,
+		shopName: name,
 		shopGoods: [],
 		employers: {},
-		open: true
+		open: false	
 
 };
-
 mainList.shopGoods[0] = prompt("Какой тип товаров будем продавать?");
 mainList.shopGoods[1] = prompt("Какой тип товаров будем продавать?");
 mainList.shopGoods[2] = prompt("Какой тип товаров будем продавать?");
@@ -19,6 +18,5 @@ console.log(mainList.shopGoods);
 function out () {
 	var p;
 	p = document.getElementById('out');
-	p.innerHTML = "Ваш бюджет на 1 день: " + Math.round(budget / 30 * 10) / 10  + " рублей (округлённо)";
+	p.innerHTML = "Ваш бюджет на 1 день: " + Math.round(mainList.budget / 30 * 10) / 10  + " рублей (округлённо)";
 }
-
