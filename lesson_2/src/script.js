@@ -1,5 +1,6 @@
 let money = prompt ("Ваш бюджет? (в рублях)");
 let name = prompt ("Название вашего магазина?");
+let time = 19;
 mainList = {
 		budget: money,
 		shopName: name,
@@ -43,8 +44,20 @@ for (let i = 0; i < 5; i++) {
 
 console.log(mainList);
 
+if (time < 0) {
+	console.log ('Такого не может быть');
+} else if (time > 8 && time < 20) {
+		console.log('Время работать!')
+	} else if (time < 24) {
+		console.log('Уже слишком поздно!')
+		} else {
+				console.log('В сутках только 24 часа!');
+			};
+
+
 function out () {
 	let p;
 	p = document.getElementById('out');
 	p.innerHTML = "Ваш бюджет на 1 день: " + Math.round(mainList.budget / 30 * 10) / 10  + " рублей (округлённо)";
 }
+
