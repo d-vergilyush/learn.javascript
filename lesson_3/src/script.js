@@ -22,7 +22,7 @@ let mainList = {
 		shopGoods: [],
 		employees: {},
 		open: false,
-		discount: true	
+		discount: false	
 
 };
 
@@ -61,8 +61,10 @@ function out (money) {
 	p.innerHTML = "Ваш бюджет на 1 день: " + Math.round(mainList.budget / 30 * 10) / 10  + " рублей (округлённо)";
 }
 
+alert(typeof(mainList.discount));
+
 function checkDiscount (price) {
-		if (mainList.discount == true) {
+		if (mainList.discount === true) {
 			price *= 0.8;
 			console.log(price);
 		} 
