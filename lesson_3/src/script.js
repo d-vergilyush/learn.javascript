@@ -22,7 +22,7 @@ let mainList = {
 		shopGoods: [],
 		employees: {},
 		open: false,
-		discount: false	
+		discount: true	
 
 };
 
@@ -62,13 +62,13 @@ function out (money) {
 }
 
 function checkDiscount (price) {
-		if (discount = "true") {
+		if (mainList.discount == true) {
 			price *= 0.8;
 			console.log(price);
 		} 
 }
 
-// checkDiscount(1000);
+// checkDiscount(1500);
 
 function hireEmployees () {
 	let b = 1;
@@ -77,7 +77,7 @@ function hireEmployees () {
 		
 		
 		
-		if ((typeof(a)) == 'string' && (typeof(a)) != null && a != '' && a.length < 50) {
+		if ((typeof(a)) == 'string' && (typeof(a)) != null && a != '' && a.length < 50 && isNaN(a) !== 'true') {
 			console.log('Имя указано верно');
 			mainList.employees[i] = b + " - " + a;
 		} else {
@@ -86,5 +86,5 @@ function hireEmployees () {
 		b++;
 	}
 }
-hireEmployees();
+// hireEmployees();
 console.log(mainList.employees);
