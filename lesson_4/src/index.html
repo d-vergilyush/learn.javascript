@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>Урок 4</title>
+	<link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:400,700&amp;subset=cyrillic-ext" rel="stylesheet">
+<style>
+
+	* {
+	  -webkit-box-sizing: border-box;
+	  box-sizing: border-box;
+	  box-sizing-transition-property: all;
+	  box-sizing-transition-duration: .6s;
+	  box-sizing-transition-timing-function: ease;
+	}
+	body {
+		font-family: 'Cormorant Garamond';
+		font-size: 17px;
+	}
+	.button-box {
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		flex-direction: column;
+		width: 400px;
+		height: 250px;
+		background: #1A2133;
+		color: #fff;
+		padding-top: 70px;
+	}
+	.btn {
+		font-size: 17px;
+		font-weight: 700;
+		background-color: #4A4F6C;
+		border: 1px solid transparent;
+		color: #ffffff;
+		padding: 12px 22px 14px;
+		border-radius: 5px;
+		overflow: hidden;
+		position: relative;
+		display: inline-block;
+		text-align: center;
+		font-family: 'Cormorant Garamond';
+	}
+
+	.btn:after {
+	  background: #fff;
+	  content: "";
+	  height: 155px;
+	  left: -75px;
+	  opacity: .2;
+	  position: absolute;
+	  top: -50px;
+	  -webkit-transform: rotate(35deg);
+	  transform: rotate(35deg);
+	  -webkit-transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
+	  transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
+	  width: 50px;
+	  z-index: 21;
+	}
+
+	.btn:hover {
+	  cursor: pointer;
+	  background-color: #546484;
+	}
+
+	.btn:hover:after {
+	  left: 120%;
+	  -webkit-transition: all 650ms cubic-bezier(0.19, 1, 0.22, 1);
+	  transition: all 650ms cubic-bezier(0.19, 1, 0.22, 1);
+	}
+
+	.btn:focus {
+		outline: none;
+	}
+</style>
+</head>
+<body>
+	<div class="main-box">
+	<div class="button-box">
+	<button onclick="out()" class="btn">Рассчитать бюджет на день</button>
+	<p id="out"></p>
+</div>
+<script src="script.js"></script>	
+</body>
+</html>

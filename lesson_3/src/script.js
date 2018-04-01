@@ -88,5 +88,6 @@ function hireEmployees () {
 		b++;
 	}
 }
-// hireEmployees();
+hireEmployees();
 console.log(mainList.employees);
+
