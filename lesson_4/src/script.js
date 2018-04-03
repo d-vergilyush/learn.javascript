@@ -74,8 +74,9 @@ let mainList = {
 					items = prompt("Перечислите через запятую товары", "");
 				}
 			mainList.shopItems = items.split(",");
-			mainList.shopItems.push(prompt("Подождите, еще ", ""));
+			mainList.shopItems.push(prompt("Подождите, еще ", "")); 
 			mainList.shopItems.sort();
+
 		}
 
 }

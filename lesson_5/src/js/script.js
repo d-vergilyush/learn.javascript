@@ -12,16 +12,18 @@ menu.insertBefore(menuItem[2], menuItem[1]);
 
 let newItem = document.createElement('li');
 menu.appendChild(newItem);
-newItem.style.cssText = "color: #fff; \
-    height: 40px; \
-    line-height: 40px; \
-    padding-right: 15px; \
-    padding-left: 15px; \
-    border: 1px solid #fff; \
-    border-radius: 8px; \
-    cursor: pointer; \
-    box-shadow: 0px 0px 20px  rgba(256, 256, 256, .4); \
-  ";
+newItem.classList.add('menu-item');
+
+// newItem.style.cssText = "color: #fff; \
+//     height: 40px; \
+//     line-height: 40px; \
+//     padding-right: 15px; \
+//     padding-left: 15px; \
+//     border: 1px solid #fff; \
+//     border-radius: 8px; \
+//     cursor: pointer; \
+//     box-shadow: 0px 0px 20px  rgba(256, 256, 256, .4); \
+//   ";
 newItem.innerHTML = 'Пятый пункт';
 
 for (let i = 0; i < 1; i++) {
