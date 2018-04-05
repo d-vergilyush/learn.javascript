@@ -109,40 +109,8 @@ for (let key in mainList) {
 
 
 
-// week
-//
-// let week = [];
-// let str = 'понедельник, вторник, среда, четверг, пятница, суббота, воскресенье';
-// for (let i = 0; i < 1; i++) {
-// 				let a = prompt('Какой сегодня день недели?', '');
-// 				if ((typeof(a)) === 'string' && (typeof(a)) != null && a != '' && isNaN(a)) {
-// 					day = a;
-			
-// 				} else {
-// 					alert("Введи день недели");
-// 					i--;
-// 				}
-// };
 
-// day = day.toLowerCase();
-// week = str.split(", ");
-// b = week.indexOf( day );
-// // alert(b);
-// if (b != -1) {
-// 	for (i = 0; i < week.length; i++) {
-// 	if (i != b && i < 5) {
-// 		console.log('%c%s', 'font-size: 17px;', week[i]);
-// 	} else if (i == b && i > 4) {
-// 		console.log('%c%s', 'font-style: Italic; font-weight: bold; font-size: 17px;', week[b]);
-// 	} else if (i == b && i < 5){
-// 		console.log('%c%s', 'font-style: Italic; font-size: 17px;', week[b]);
-// 	} else {
-// 		console.log('%c%s', 'font-weight: bold; font-size: 17px;', week[i]);
-// 	}
-// 	};
-// } else alert("Такого дня недели не бывает!")
 
-	
 
 // alert("Привет! Я - Великий рандом! Готов выбрать победителя? ");
 // var min = 1;
