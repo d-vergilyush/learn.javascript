@@ -35,7 +35,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
 	// Timer
 
-	let deadline = '2018-04-11';
+	let deadline = '2018-04-12';
 
 	//функция для получения оставшего времени
 	function getTimeRemaining(endtime) {
@@ -140,5 +140,52 @@ window.addEventListener('DOMContentLoaded', function () {
 		descr_btns[i].addEventListener('click', showModal);
 	}
 
+//Form
+
+let message = new Object();
+message.loading = "Загрузка...";
+message.success = "Спасибо! Скоро мы с вами свяжемся";
+message.failure = "Что-то пошло не так...";
+
+let form = document.getElementsByClassName('main-form')[0];
+let input = document.getElementsByClassName('clear_input');
+let contact_form = document.getElementById('form');
+let statusMessage = document.createElement('div');
+statusMessage.classList.add('status');
+
+form.addEventListener('submit', sendForm);
+contact_form.addEventListener('submit', sendForm);
+function sendForm(event) {
+	event.preventDefault();
+	this.appendChild(statusMessage);
+
+	//AJAX
+	let request = new XMLHttpRequest();
+	request.open("POST", 'server.php')
+
+	request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+	let formData = new FormData(form);
+
+	request.send(formData);
+
+	request.onreadystatechange = function() {
+		if(request.readyState < 4) {
+			statusMessage.innerHTML = message.loading;
+		} else if(request.readyState === 4) {
+			if(request.status == 200 && request.status < 300) {
+				statusMessage.innerHTML = message.success;
+
+
+
+
+				//успешная отправка данных, добавляем контент
+			} else statusMessage.innerHTML = message.failure;
+		}
+	}
+	for(let i = 0; i < input.length; i++) {
+		input[i].value = '';
+	}
+}
 
 });
