@@ -11,12 +11,12 @@ class Options {
 		let elem = document.createElement('div');
 		document.body.appendChild(elem);
 		elem.innerHTML = prompt('Введи волшебное слово', '');
-		elem.style.cssText = `height: ${this.height}; \
-	    width: ${this.width}; \
-	    background: ${this.bg}; \
-	    font-size: ${this.fontSize}; \
-	    text-align: ${this.textAlign}; \
-	  	`;
+		elem.style.cssText =   `height: ${this.height}; \
+								width: ${this.width}; \
+								background: ${this.bg}; \
+								font-size: ${this.fontSize}; \
+								text-align: ${this.textAlign}; \
+							   `;
 
 	}
 }
