@@ -1,30 +1,21 @@
-let menu = document.querySelector('.menu')
-let menuItem = document.getElementsByClassName('menu-item');
-let body = document.getElementsByTagName('body');
-let promptText = document.getElementById('prompt');
-document.querySelector('.adv').remove();
-document.getElementById('title').innerHTML="Мы продаем только подлинную технику Apple";
+let menu = document.querySelector('.menu') //получили всё меню
+let menuItem = document.getElementsByClassName('menu-item'); //получили псевдомассив со всеми элементами меню 
+let body = document.getElementsByTagName('body'); //получили body
+let promptText = document.getElementById('prompt'); //получили поле для вывода текста
+document.querySelector('.adv').remove(); //получили блок с рекламой и удалили его
+document.getElementById('title').innerHTML="Мы продаем только подлинную технику Apple"; 
+//получили заголовок и вставили в него новый текст
 
 
-body[0].style.background = 'url(../img/apple_true.jpg) center no-repeat';
+body[0].style.background = 'url(../img/apple_true.jpg) center no-repeat'; //применили стили к body
 
-menu.insertBefore(menuItem[2], menuItem[1]);
+menu.insertBefore(menuItem[2], menuItem[1]); // вставляем menuItem[2](третий пункт меню) перед menuItem[1](второй пункт меню)
 
-let newItem = document.createElement('li');
-menu.appendChild(newItem);
-newItem.classList.add('menu-item');
+let newItem = document.createElement('li'); // создали новый элемент li
+menu.appendChild(newItem); //вставили этот элемент внутрь меню, по умолчаю он последний, как и надо
+newItem.classList.add('menu-item'); //добавили класс menu-item
 
-// newItem.style.cssText = "color: #fff; \
-//     height: 40px; \
-//     line-height: 40px; \
-//     padding-right: 15px; \
-//     padding-left: 15px; \
-//     border: 1px solid #fff; \
-//     border-radius: 8px; \
-//     cursor: pointer; \
-//     box-shadow: 0px 0px 20px  rgba(256, 256, 256, .4); \
-//   ";
-newItem.innerHTML = 'Пятый пункт';
+newItem.innerHTML = 'Пятый пункт'; //написали текст 'Пятый пункт' внутри newItem
 
 for (let i = 0; i < 1; i++) {
 		let a = prompt("Как вы относитесь к технике Apple?", "");
