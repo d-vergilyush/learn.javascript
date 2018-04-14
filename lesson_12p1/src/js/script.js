@@ -1,5 +1,6 @@
 $(document).ready( function(){
 	$('.modal').css("top", "-200px");
+
 	$('.show_modal').on("click", function(){
 					$('.overlay').fadeIn();
 					$('.modal').animate(
@@ -19,9 +20,9 @@ $(document).ready( function(){
   },
 1000);
 });
-	$(document).mouseup(function (e) { // по клику вне попапа
-	    var popup = $('.modal');
-	    if (e.target!=popup[0]&&popup.has(e.target).length === 0){
+	$('.overlay').mouseup(function (e) { // по клику вне попапа
+	    let popup = $('.modal');
+	    if (e.target!=popup && popup.has(e.target).length === 0){
 	        $('.overlay').fadeOut()
 				$('.modal').animate(
   {
