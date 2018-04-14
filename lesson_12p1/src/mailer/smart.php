@@ -1,9 +1,10 @@
 <?php 
 
-$name = $_POST["name"];
-$phone = $_POST["phone"];
-$mail = $_POST["mail"];
-$message = $_POST["message"];
+$name = $_POST["user_name"];
+$phone = $_POST["user_phone"];
+$email = $_POST["user_mail"];
+$message = $_POST["user_message"];
+
 
 require_once('phpmailer/PHPMailerAutoload.php');
 $mail = new PHPMailer;
@@ -29,13 +30,12 @@ $mail->addAddress('d.vergilyush@yandex.ru', 'advice_finance@etlgr.com');     // 
 //$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
 $mail->isHTML(true);                                  // Set email format to HTML
 
-
 $mail->Subject = 'Заявка с сайта';
 $mail->Body    = '<div style="display: block">Пользователь сайта оставил данные </div>
 <div style="display: block"> Имя: ' . $name . ' </div>
 <div style="display: block"> Телефон: ' . $phone . ' </div>
-<div style="display: block"> e-mail: ' . $mail . ' </div>
-<div style="display: block"> Оставлено сообщение: ' . $message . ' </div>';
+<div style="display: block"> E-mail: ' . $email . ' </div>
+<div style="display: block"> Сообщение: ' . $message . ' </div>';
 $mail->AltBody = 'Это альтернативный текст';
 
 if(!$mail->send()) {
