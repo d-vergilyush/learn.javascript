@@ -155,6 +155,7 @@ statusMessage.classList.add('status');
 
 form.addEventListener('submit', sendForm);
 contact_form.addEventListener('submit', sendForm);
+
 function sendForm(event) {
 	event.preventDefault();
 	this.appendChild(statusMessage);
@@ -175,10 +176,6 @@ function sendForm(event) {
 		} else if(request.readyState === 4) {
 			if(request.status == 200 && request.status < 300) {
 				statusMessage.innerHTML = message.success;
-
-
-
-
 				//успешная отправка данных, добавляем контент
 			} else statusMessage.innerHTML = message.failure;
 		}
