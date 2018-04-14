@@ -8,7 +8,7 @@ $(document).ready( function(){
 							opacity: 'show',
 							top: '0'
 						},
-						600);
+						1000);
 				});
 
 	$('.close').on("click", function(){
