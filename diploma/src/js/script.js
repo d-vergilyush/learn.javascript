@@ -27,7 +27,4 @@
 			this.style.display = 'block';
 		};
 
-	}
-
-
-
+	})
