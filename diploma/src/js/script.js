@@ -279,18 +279,12 @@
 					};
 				};
 
-
 				candidatePhoto.classList.remove('photo-2');
 				candidatePhoto.style.cssText =   `background-image: ${personHair.style.backgroundImage}, \
 																					${personClothes.style.backgroundImage}, \
 																					${personSkin.style.backgroundImage};
 																				   `;
-			
 			   }
-
-
-
 		});
-
 
 	})
