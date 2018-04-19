@@ -7,8 +7,7 @@
 			let custom = document.querySelector('.custom');
 			let customTools = document.getElementsByClassName('custom-tools');
 
-			create.addEventListener('click', function() {
-
+			function toCustomize() {
 				overlay.classList.add('animated', 'fadeOut');
 				setTimeout(function() {
 					overlay.style.display = 'none';
@@ -20,7 +19,9 @@
 				slideInDown.call(customTools[i])
 				};
 
-			});
+			}
+
+			create.addEventListener('click', toCustomize);
 
 		function slideInDown() {
 			this.classList.add('animated','slideInDown');
@@ -41,12 +42,12 @@
 		let personHair = document.querySelector('.person-hair');
 		let personClothes = document.querySelector('.person-clothes');
 		let skin, hair, clothes;
-		let maleSkin = ['url(../img/skin/skin-1.png)', 'url(../img/skin/skin-2.png)', 'url(../img/skin/skin-3.png)'];
-		let femaleSkin = ['url(../img/skin/skin-4.png)', 'url(../img/skin/skin-5.png)', 'url(../img/skin/skin-6.png)'];
-		let maleHair = ['url(../img/hair/construct/hair-1.png)', 'url(../img/hair/construct/hair-2.png)', 'url(../img/hair/construct/hair-3.png)'];
-		let femaleHair = ['url(../img/hair/construct/hair-4.png)', 'url(../img/hair/construct/hair-5.png)', 'url(../img/hair/construct/hair-6.png)'];
-		let maleClothes = ['url(../img/clothes/construct/clothes-1.png)', 'url(../img/clothes/construct/clothes-2.png)', 'url(../img/clothes/construct/clothes-3.png)'];
-		let femaleClothes = ['url(../img/clothes/construct/clothes-4.png)', 'url(../img/clothes/construct/clothes-5.png)', 'url(../img/clothes/construct/clothes-6.png)'];
+		let maleSkin = ['url(img/skin/skin-1.png)', 'url(img/skin/skin-2.png)', 'url(img/skin/skin-3.png)'];
+		let femaleSkin = ['url(img/skin/skin-4.png)', 'url(img/skin/skin-5.png)', 'url(img/skin/skin-6.png)'];
+		let maleHair = ['url(img/hair/construct/hair-1.png)', 'url(img/hair/construct/hair-2.png)', 'url(img/hair/construct/hair-3.png)'];
+		let femaleHair = ['url(img/hair/construct/hair-4.png)', 'url(img/hair/construct/hair-5.png)', 'url(img/hair/construct/hair-6.png)'];
+		let maleClothes = ['url(img/clothes/construct/clothes-1.png)', 'url(img/clothes/construct/clothes-2.png)', 'url(img/clothes/construct/clothes-3.png)'];
+		let femaleClothes = ['url(img/clothes/construct/clothes-4.png)', 'url(img/clothes/construct/clothes-5.png)', 'url(img/clothes/construct/clothes-6.png)'];
 
 		function getrand(min, max){
 			return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -233,7 +234,7 @@
 		};
 
 		readyBtn.addEventListener('click', (event) => {
-			if (inputName.value != '' && inputAge.value != '' && inputBio.value != '' && inputAge.value >= 18) {
+			if (inputName.value != '' && inputAge.value != '' && inputBio.value != '' && inputAge.value >= 18 && inputAge.value < 60) {
 
 			let newMainCardsItem = mainCardsItem[1].cloneNode(true);
 			mainCards.appendChild(newMainCardsItem);
@@ -286,5 +287,23 @@
 																				   `;
 			   }
 		});
+
+
+		//Сбросить результаты
+		let resetBtn = document.querySelector('#reset');
+
+
+		resetBtn.addEventListener('click', toCustomize);
+		// resetBtn.addEventListener('click', function() {
+		// 	// let worthlessCandidate = document.querySelectorAll('.main-cards-item')[2];
+		// 	console.log(inputName);
+		// 	let resetInput = document.getElementsByClassName('reset-input');
+		// 	for (let i = 0; i < resetInput.length; i++ ) {
+		// 		resetInput[i].value = '';
+		// 	}
+			
+
+		// })
+
 
 	})
