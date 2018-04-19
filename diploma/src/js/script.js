@@ -234,7 +234,7 @@
 		};
 
 		readyBtn.addEventListener('click', (event) => {
-			if (isNaN(inputBio.value) && isNaN(inputName.value) && inputName.value != '' && inputAge.value != '' && inputBio.value != '' && inputAge.value >= 18 && inputAge.value < 60) {
+			if (isNaN(inputBio.value) && isNaN(inputName.value) && inputName.value != '' && inputAge.value != '' && inputBio.value != '' && inputAge.value >= 18 && inputAge.value <= 70) {
 
 			let newMainCardsItem = mainCardsItem[1].cloneNode(true);
 			mainCards.appendChild(newMainCardsItem);
