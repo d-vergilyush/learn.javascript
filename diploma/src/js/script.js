@@ -234,7 +234,7 @@
 		};
 
 		readyBtn.addEventListener('click', (event) => {
-			if (isNaN(inputBio.value) && isNaN(inputName.value) && inputName.value != '' && inputAge.value != '' && inputBio.value != '' && inputAge.value >= 18 && inputAge.value <= 70) {
+			if (isNaN(inputBio.value) && isNaN(inputName.value) && inputName.value != '' && inputAge.value.length = 2 && inputAge.value != '' && inputBio.value != '' && inputAge.value >= 18 && inputAge.value <= 70) {
 
 			let newMainCardsItem = mainCardsItem[1].cloneNode(true);
 			mainCards.appendChild(newMainCardsItem);
@@ -244,7 +244,7 @@
 			let candidateSex = document.querySelectorAll('.sex')[2];
 			let candidateViews = document.querySelectorAll('.views')[2];
 			let candidateBio = document.querySelectorAll('.bio')[2];
-
+			console.log(inputAge.value.length);
 				transferCustomInfo();
 				resetResultCount();
 				custom.style.display = 'none';
@@ -291,9 +291,10 @@
 
 		//Сбросить результаты
 		let resetBtn = document.querySelector('#reset');
-
-
 		resetBtn.addEventListener('click', toCustomize);
+
+
+
 		// resetBtn.addEventListener('click', function() {
 		// 	// let worthlessCandidate = document.querySelectorAll('.main-cards-item')[2];
 		// 	console.log(inputName);
