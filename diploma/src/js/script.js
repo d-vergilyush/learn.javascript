@@ -233,10 +233,12 @@
 			});
 		};
 
-		readyBtn.addEventListener('click', (event) => {
-			if (isNaN(inputBio.value) && isNaN(inputName.value) && inputName.value != '' && inputAge.value.length == 2 && inputAge.value != '' && inputBio.value != '' && inputAge.value >= 35 && inputAge.value <= 70) {
+		let newMainCardsItem;
 
-			let newMainCardsItem = mainCardsItem[1].cloneNode(true);
+		readyBtn.addEventListener('click', function(event) {
+			if (isNaN(inputBio.value) && isNaN(inputName.value) && inputName.value != '' && inputAge.value.length == 2 && inputAge.value != '' && inputBio.value != '' && inputAge.value >= 35 && inputAge.value <= 80) {
+
+			newMainCardsItem = mainCardsItem[1].cloneNode(true);
 			mainCards.appendChild(newMainCardsItem);
 			let candidatePhoto = document.querySelectorAll('.photo')[2];
 			let candidateName = document.querySelectorAll('.name')[2];
@@ -301,6 +303,11 @@
 
 		//Сбросить результаты
 		let resetBtn = document.querySelector('#reset');
+
+		resetBtn.addEventListener('click', function() {
+			newMainCardsItem.remove();
+
+		});
 		resetBtn.addEventListener('click', toCustomize);
 
 
