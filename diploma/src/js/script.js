@@ -234,7 +234,7 @@
 		};
 
 		readyBtn.addEventListener('click', (event) => {
-			if (inputName.value != '' && inputAge.value != '' && inputBio.value != '') {
+			if (inputName.value != '' && inputAge.value != '' && inputBio.value != '' && inputAge.value >= 18 && inputAge.value < 60) {
 
 			let newMainCardsItem = mainCardsItem[1].cloneNode(true);
 			mainCards.appendChild(newMainCardsItem);
@@ -259,7 +259,7 @@
 				function transferCustomInfo() {
 					if (isNaN(inputName.value)) {
 						candidateName.innerHTML = inputName.value;
-						candidateAge.innerHTML = inputAge.value;
+						candidateAge.innerHTML = `${inputAge.value} лет`;
 						candidateBio.innerHTML = inputBio.value;
 					}
 
