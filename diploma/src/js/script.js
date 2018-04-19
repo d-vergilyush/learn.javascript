@@ -234,7 +234,7 @@
 		};
 
 		readyBtn.addEventListener('click', (event) => {
-			if (isNaN(inputBio.value) && isNaN(inputName.value) && inputName.value != '' && inputAge.value.length = 2 && inputAge.value != '' && inputBio.value != '' && inputAge.value >= 18 && inputAge.value <= 70) {
+			if (isNaN(inputBio.value) && isNaN(inputName.value) && inputName.value != '' && inputAge.value.length == 2 && inputAge.value != '' && inputBio.value != '' && inputAge.value >= 18 && inputAge.value <= 70) {
 
 			let newMainCardsItem = mainCardsItem[1].cloneNode(true);
 			mainCards.appendChild(newMainCardsItem);
@@ -259,7 +259,17 @@
 				function transferCustomInfo() {
 					if (isNaN(inputName.value)) {
 						candidateName.innerHTML = inputName.value;
-						candidateAge.innerHTML = `${inputAge.value} лет`;
+						let age = inputAge.value.split('');
+												if(age[1] == 1) {
+													candidateAge.innerHTML = `${inputAge.value} год`;
+												} else if (age[1] > 1 && age[1] < 5) {
+													candidateAge.innerHTML = `${inputAge.value} года`;
+												} else if (age[1] > 5 && age[1] < 9) {
+													candidateAge.innerHTML = `${inputAge.value} лет`;
+												} else if (age[1] == 0) {
+													candidateAge.innerHTML = `${inputAge.value} лет`;
+												};
+
 						candidateBio.innerHTML = inputBio.value;
 					}
 
