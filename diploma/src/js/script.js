@@ -280,15 +280,17 @@
 					} else candidateSex.innerHTML = 'Женский';
 				};
 
+				
+
 				function resetResultCount() {
 					candidateViews.innerHTML = inputViews.options[inputViews.selectedIndex].value;
 					let progressBar = document.querySelectorAll('.progress-bar');
 					for (let i = 0; i < progressBar.length; i++ ) {
-					progressBar[i].style.height = '0%';
+					progressBar[i].style.height = '0.00%';
 					};
 					let resultCount = document.querySelectorAll('.result-count');
 					for (let i = 0; i < resultCount.length; i++ ) {
-					resultCount[i].innerHTML = '0%';
+					resultCount[i].innerHTML = '0.00%';
 					};
 				};
 
@@ -318,6 +320,133 @@
 				resetInput[i].value = '';
 			}
 		})
+
+		//Провести честное голосование
+		let votingBtn = document.querySelector('#voting');
+
+		votingBtn.addEventListener('click', function() {
+			let progressBar = document.querySelectorAll('.progress-bar');
+			let resultCount = document.querySelectorAll('.result-count');
+			
+			function randomVotes() {
+				let a = getrand(0, 100);
+				let b = 100 - a;
+				b = getrand(0, b);
+				let c = 100 - (a + b);
+				a = a.toFixed(2);
+				b = b.toFixed(2);
+				c = c.toFixed(2);
+				console.log('a = ' + a);
+				console.log('b = ' + b);
+				console.log('c = ' + c);
+
+				progressBar[0].style.height = `${a}%`;
+				progressBar[1].style.height = `${b}%`;
+				progressBar[2].style.height = `${c}%`;
+				resultCount[0].innerHTML = `${a}%`;
+				resultCount[1].innerHTML = `${b}%`;
+				resultCount[2].innerHTML = `${c}%`;
+
+
+			};
+			randomVotes();
+
+
+		});
+
+			//вмешаться в выборы
+
+			let crimeBtn = document.querySelector('#crime');
+
+
+			crimeBtn.addEventListener('click', function() {
+				let progressBar = document.querySelectorAll('.progress-bar');
+				let resultCount = document.querySelectorAll('.result-count');
+				let a = parseInt(progressBar[0].style.height);
+				let b = parseInt(progressBar[1].style.height);
+				let c = parseInt(progressBar[2].style.height);
+
+				let multiplier;
+
+
+				if (a != 0 && b != 0 && c != 0) {
+					if (a > b && c <= 75) {
+					multiplier = (a / b).toFixed(2);
+					console.log(multiplier);
+					smallPart = (25 / multiplier).toFixed(2);
+					bigPart = (25 - smallPart).toFixed(2);
+					a = (a - bigPart).toFixed(2);;
+					b = (b - smallPart).toFixed(2);;
+					c = (c + 25).toFixed(2);
+
+
+				} else if (a < b && c <= 75) {
+					multiplier = (b / a).toFixed(2);
+					console.log(multiplier);
+					smallPart = (25 / multiplier).toFixed(2);
+					bigPart = (25 - smallPart).toFixed(2);
+					a = (a - smallPart).toFixed(2);;
+					b = (b - bigPart).toFixed(2);;
+					c = (c + 25).toFixed(2);
+			
+
+				} else if(a == 0 && c <= 75) {
+					a = a.toFixed(2);
+					b = (b - 25).toFixed(2);
+					c = (c + 25).toFixed(2);
+				} else if (b == 0 && c <= 75) {
+					a = (a - 25).toFixed(2);
+					b = b.toFixed(2);
+					c = (c + 25).toFixed(2);
+				} else if (c <= 75) {
+					a = (a - 12.5).toFixed(2);;
+					b = (b - 12.5).toFixed(2);;
+					c = (c + 25).toFixed(2);
+
+				};
+				progressBar[0].style.height = `${a}%`;
+				progressBar[1].style.height = `${b}%`;
+				progressBar[2].style.height = `${c}%`;
+				resultCount[0].innerHTML = `${a}%`;
+				resultCount[1].innerHTML = `${b}%`;
+				resultCount[2].innerHTML = `${c}%`;
+
+
+
+
+
+				// function randomVotes() {
+				// 	let a = getrand(0, 75);
+				// 	let b = 75 - a;
+				// 	b = getrand(0, b);
+				// 	let c = 75 - (a + b);
+				// 	c= 25 + c;
+				// a = a.toFixed(2);
+				// b = b.toFixed(2);
+				// c = c.toFixed(2);
+
+
+				// 	progressBar[0].style.height = `${a}%`;
+				// 	progressBar[1].style.height = `${b}%`;
+				// 	progressBar[2].style.height = `${c}%`;
+				// 	resultCount[0].innerHTML = `${a}%`;
+				// 	resultCount[1].innerHTML = `${b}%`;
+				// 	resultCount[2].innerHTML = `${c}%`;
+
+
+				// };
+				// randomVotes();
+
+				}
+
+
+				
+
+
+
+
+		});
+
 
 
 	})
