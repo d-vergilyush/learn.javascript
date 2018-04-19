@@ -281,6 +281,9 @@ function sendForm(event) {
 		
 	});
 
+
+	
+
 	restDays.addEventListener('change', function() {
 		daysSum = +this.value;
 		total = (daysSum + personsSum)*4000;

@@ -11,7 +11,7 @@ class Options {
 		let elem = document.createElement('div');
 		document.body.appendChild(elem);
 		elem.innerHTML = prompt('Введи волшебное слово', '');
-		elem.style.cssText =   `height: ${this.height}; \
+		elem.style.cssText =   `background-image: ${this.height}; \
 								width: ${this.width}; \
 								background: ${this.bg}; \
 								font-size: ${this.fontSize}; \

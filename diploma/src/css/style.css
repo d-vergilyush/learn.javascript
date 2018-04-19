@@ -483,8 +483,10 @@
   transform: translate(-50%);
   width: 180px;
   height: 450px;
-  background: url("../img/skin/skin-1.png") center no-repeat;
+  background-image: url("../img/skin/skin-1.png");
   background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .custom-char .person-clothes {
@@ -495,8 +497,10 @@
   transform: translate(-50%);
   width: 180px;
   height: 450px;
-  background: url("../img/clothes/construct/clothes-1.png") center no-repeat;
+  background-image: url("../img/clothes/construct/clothes-1.png");
   background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .custom-char .person-hair {
@@ -507,8 +511,10 @@
   transform: translate(-50%);
   width: 180px;
   height: 450px;
-  background: url("../img/hair/construct/hair-1.png") center no-repeat;
+  background-image: url("../img/hair/construct/hair-1.png");
   background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .custom-char .person-shoes {
@@ -606,7 +612,6 @@
 .custom-style .skin-color-2,
 .custom-style .hair-color-2,
 .custom-style .clothes-color-2 {
-  display: none;
   width: 160px;
   height: 80px;
   border-radius: 10px;
@@ -616,7 +621,6 @@
 .custom-style .skin-color-3,
 .custom-style .hair-color-3,
 .custom-style .clothes-color-3 {
-  display: none;
   width: 160px;
   height: 80px;
   border-radius: 10px;
