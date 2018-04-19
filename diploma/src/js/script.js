@@ -306,22 +306,18 @@
 
 		resetBtn.addEventListener('click', function() {
 			newMainCardsItem.remove();
-
 		});
 		resetBtn.addEventListener('click', toCustomize);
 
+		let cleaner = document.querySelector('.cleaner-btn');
 
 
-		// resetBtn.addEventListener('click', function() {
-		// 	// let worthlessCandidate = document.querySelectorAll('.main-cards-item')[2];
-		// 	console.log(inputName);
-		// 	let resetInput = document.getElementsByClassName('reset-input');
-		// 	for (let i = 0; i < resetInput.length; i++ ) {
-		// 		resetInput[i].value = '';
-		// 	}
-			
-
-		// })
+		cleaner.addEventListener('click', function() {
+			let resetInput = document.getElementsByClassName('reset-input');
+			for (let i = 0; i < resetInput.length; i++ ) {
+				resetInput[i].value = '';
+			}
+		})
 
 
 	})
