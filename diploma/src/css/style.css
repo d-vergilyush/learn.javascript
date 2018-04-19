@@ -476,6 +476,8 @@
   margin: 20px auto;
   line-height: 14px;
   padding: 9px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
 }
 
 .custom-info .cleaner-btn:hover {
