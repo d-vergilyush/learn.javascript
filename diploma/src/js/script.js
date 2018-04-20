@@ -405,7 +405,7 @@
 							a = (a - 12.5).toFixed(2);
 							b = (b - 12.5).toFixed(2);
 							c = (c + 25).toFixed(2);
-						} else {
+						} else if(c < 75) {
 							let a1 = ((a * 100) / (a + b)).toFixed(2);
 							let b1 = (100 - a1).toFixed(2);
 							a1 = (a1 * 25 / 100).toFixed(2);
