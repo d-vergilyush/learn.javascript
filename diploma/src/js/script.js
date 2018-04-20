@@ -84,7 +84,6 @@
 			})
 		};
 
-
 		function chooseSkin() {
 			let slides = document.querySelectorAll('.skin-color');
 			let slideIndex = getrand(1, slides.length);
@@ -286,7 +285,6 @@
 				};
 
 				
-
 				function resetResultCount() {
 					candidateViews.innerHTML = inputViews.options[inputViews.selectedIndex].value;
 					let progressBar = document.querySelectorAll('.progress-bar');
@@ -308,9 +306,7 @@
 			   newChooseWinnerFor();
 		});
 
-
 		//Сбросить результаты
-		
 		
 		let resetBtn = document.querySelector('#reset');
 
@@ -340,8 +336,6 @@
 			} else if (max == b) {
 				mainCardsItem[1].classList.add('main-cards-item-active');
 			} else newMainCardsItem.classList.add('main-cards-item-active');
-
-
 		};
 
 		let votingBtn = document.querySelector('#voting');
@@ -360,9 +354,6 @@
 				a = a.toFixed(2);
 				b = b.toFixed(2);
 				c = c.toFixed(2);
-				console.log('a = ' + a);
-				console.log('b = ' + b);
-				console.log('c = ' + c);
 
 				progressBar[0].style.height = `${a}%`;
 				progressBar[1].style.height = `${b}%`;
@@ -373,11 +364,8 @@
 
 				setTimeout(chooseWinner(a, b, c), 0);
 
-
 			};
 			randomVotes();
-			
-
 
 		});
 
@@ -420,7 +408,6 @@
 							// }
 
 
-
 						} else if (a < b && c < 75) {
 							multiplier = (b / a).toFixed(2);
 							console.log(multiplier);
@@ -440,7 +427,6 @@
 							// }
 
 						
-
 						} else if(a == 0.00 && c < 75) {
 							a = a.toFixed(2);
 							b = (b - 25).toFixed(2);
@@ -459,9 +445,6 @@
 							c = 100.00;
 						};
 
-
-
-
 						progressBar[0].style.height = `${a}%`;
 						progressBar[1].style.height = `${b}%`;
 						progressBar[2].style.height = `${c}%`;
@@ -469,18 +452,6 @@
 						resultCount[1].innerHTML = `${b}%`;
 						resultCount[2].innerHTML = `${c}%`;
 						setTimeout(chooseWinner(a, b, c), 0);
-
-
-
-
-
-
-
-
-
-
-
-
 
 						// function randomVotes() {
 						// 	let a = getrand(0, 75);
@@ -506,14 +477,6 @@
 
 					}
 				}
-
-				
-
-
-				
-
-
-
 
 		});
 
