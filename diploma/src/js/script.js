@@ -389,49 +389,15 @@
 					if (a == 0.00 && b == 0.00) {
 						console.log('Круче только яйца!');
 					} else {
-							if (a > b && c < 75) {
-							multiplier = (a / b).toFixed(2);
-							console.log(multiplier);
-							smallPart = (25 / multiplier).toFixed(2);
-							bigPart = (25 - smallPart).toFixed(2);
-							a = (a - bigPart).toFixed(2);;
-							b = (b - smallPart).toFixed(2);;
-							c = (c + 25).toFixed(2);
-							// if (smallPart <= b) {
-							// 	a = (a - bigPart).toFixed(2);;
-							// 	b = (b - smallPart).toFixed(2);;
-							// 	c = (c + 25).toFixed(2);
-							// } else {
-							// 	a = (a - 25).toFixed(2);
-							// 	b = 0.00;
-							// 	c = (c + 25).toFixed(2);
-							// }
-
-
-						} else if (a < b && c < 75) {
-							multiplier = (b / a).toFixed(2);
-							console.log(multiplier);
-							smallPart = (25 / multiplier).toFixed(2);
-							bigPart = (25 - smallPart).toFixed(2);
-							a = (a - smallPart).toFixed(2);;
-							b = (b - bigPart).toFixed(2);;
-							c = (c + 25).toFixed(2);
-							// if (smallPart >= a) {
-							// 	a = (a - smallPart).toFixed(2);;
-							// 	b = (b - bigPart).toFixed(2);;
-							// 	c = (c + 25).toFixed(2);
-							// } else {
-							// 	a = 0.00;
-							// 	b = (b - 25).toFixed(2);
-							// 	c = (c + 25).toFixed(2);
-							// }
-
-						
-						} else if(a == 0.00 && c < 75) {
+							if (c >= 75) {
+							a = 0.00;
+							b = 0.00;
+							c = 100.00;
+							} else if(a == 0.00 && c < 75) {
 							a = a.toFixed(2);
 							b = (b - 25).toFixed(2);
 							c = (c + 25).toFixed(2);
-						} else if (b == 0.00 && c < 75) {
+						} else if(b == 0.00 && c < 75) {
 							a = (a - 25).toFixed(2);
 							b = b.toFixed(2);
 							c = (c + 25).toFixed(2);
@@ -439,11 +405,15 @@
 							a = (a - 12.5).toFixed(2);
 							b = (b - 12.5).toFixed(2);
 							c = (c + 25).toFixed(2);
-						} else if (c >= 75) {
-							a = 0.00;
-							b = 0.00;
-							c = 100.00;
-						};
+						} else {
+							let a1 = ((a * 100) / (a + b)).toFixed(2);
+							let b1 = (100 - a1).toFixed(2);
+							a1 = (a1 * 25 / 100).toFixed(2);
+							a = (a - a1).toFixed(2);
+							b1 = (25 - a1).toFixed(2);
+							b = (b - b1).toFixed(2);
+							c = (c + 25).toFixed(2);
+						}; 
 
 						progressBar[0].style.height = `${a}%`;
 						progressBar[1].style.height = `${b}%`;
