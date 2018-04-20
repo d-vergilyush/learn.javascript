@@ -100,6 +100,8 @@
 
 .main-cards-item-active {
   border: 3px solid #1f8ce2;
+  -webkit-transition: 1s;
+  transition: 1s;
 }
 
 .main-cards-item .candidate-block {
