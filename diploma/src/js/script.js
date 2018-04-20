@@ -41,6 +41,7 @@
 		let personSkin = document.querySelector('.person-skin');
 		let personHair = document.querySelector('.person-hair');
 		let personClothes = document.querySelector('.person-clothes');
+		let personShoes = document.querySelector('.person-shoes');
 		let skin, hair, clothes;
 		let maleSkin = ['url(img/skin/skin-1.png)', 'url(img/skin/skin-2.png)', 'url(img/skin/skin-3.png)'];
 		let femaleSkin = ['url(img/skin/skin-4.png)', 'url(img/skin/skin-5.png)', 'url(img/skin/skin-6.png)'];
@@ -48,6 +49,9 @@
 		let femaleHair = ['url(img/hair/construct/hair-4.png)', 'url(img/hair/construct/hair-5.png)', 'url(img/hair/construct/hair-6.png)'];
 		let maleClothes = ['url(img/clothes/construct/clothes-1.png)', 'url(img/clothes/construct/clothes-2.png)', 'url(img/clothes/construct/clothes-3.png)'];
 		let femaleClothes = ['url(img/clothes/construct/clothes-4.png)', 'url(img/clothes/construct/clothes-5.png)', 'url(img/clothes/construct/clothes-6.png)'];
+
+
+
 
 		function getrand(min, max){
 			return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -66,6 +70,7 @@
 		chooseSkin();
 		chooseHair();
 		chooseСlothes();
+		personShoes.style.backgroundImage = 'url(img/clothes/construct/shoes.png)';
 
 		for (let i = 0; i < inputSex.length; i++) {
 			inputSex[i].addEventListener('change', () => {
@@ -239,8 +244,87 @@
 			newMainCardsItem.classList.remove('main-cards-item-active');
 		};
 
-		readyBtn.addEventListener('click', function(event) {
-			if (isNaN(inputBio.value) && isNaN(inputName.value) && inputName.value != '' && inputAge.value.length == 2 && inputAge.value != '' && inputBio.value != '' && inputAge.value >= 35 && inputAge.value <= 80) {
+		//ошибки при заполнении полей
+
+		let errorMessage = document.createElement('div'); // создали новый элемент
+	 	let customInfo = document.querySelector('.custom-info');
+		customInfo.appendChild(errorMessage); //вставили этот элемент 
+		customInfo.style.position = 'relative';
+		errorMessage.classList.add('error-message'); //добавили класс menu-item
+		let inputsArr = document.querySelectorAll('.reset-input');
+
+		for(let i = 0; i < inputsArr.length; i++) {
+			inputsArr[i].addEventListener('change', checkErrors);
+		};
+		const pattern = /[a-zа-я\s]/ig;
+		function checkErrors() {
+					
+			
+
+					if (inputName.value == '') {
+					inputName.style.border = '2px solid rgba(234, 63, 63, 0.7)';
+					inputName.style.transition = '1s';
+					errorMessage.style.display = 'block';
+					errorMessage.classList.add('animated','fadeIn');
+					errorMessage.innerHTML = 'Заполните поле "Фамилия Имя Отчество"'; 
+				} else if (!isNaN(inputName.value) || inputName.value.length < 2 || !pattern.test(inputName.value || inputName.value[0] === " ")) {
+						inputName.style.border = '2px solid rgba(234, 63, 63, 0.7)';
+						inputName.style.transition = '1s';
+						errorMessage.style.display = 'block';
+						errorMessage.classList.add('animated','fadeIn');
+						errorMessage.innerHTML = 'Введите не менее двух букв в поле "Фамилия Имя Отчество"'; 
+						} else if (inputAge.value == '') {
+								inputName.style.border = '';
+								inputAge.style.border = '2px solid rgba(234, 63, 63, 0.7)';
+								inputAge.style.transition = '1s';
+								errorMessage.style.display = 'block';
+								errorMessage.classList.add('animated','fadeIn');
+								errorMessage.innerHTML = 'Заполните поле "Возраст'; 
+								} else if (inputAge.value < 35 || isNaN(inputAge.value)) {
+										inputName.style.border = '';
+										inputAge.style.border = '2px solid rgba(234, 63, 63, 0.7)';
+										inputAge.style.transition = '1s';
+										errorMessage.style.display = 'block';
+										errorMessage.classList.add('animated','fadeIn');
+										errorMessage.innerHTML = 'Возраст кандидата должен быть от 35 лет'; 
+										} else if (inputAge.value.length != 2 || inputAge.value > 90) {
+											inputName.style.border = '';
+											inputAge.style.border = '2px solid rgba(234, 63, 63, 0.7)';
+											inputAge.style.transition = '1s';
+											errorMessage.style.display = 'block';
+											errorMessage.classList.add('animated','fadeIn');
+											errorMessage.innerHTML = 'Таких старых в президенты не берут!'; 
+										} else if (inputBio.value == '') {
+											inputName.style.border = '';
+											inputAge.style.border = '';
+											inputBio.style.border = '2px solid rgba(234, 63, 63, 0.7)';
+											inputBio.style.transition = '1s';
+											errorMessage.style.display = 'block';
+											errorMessage.classList.add('animated','fadeIn');
+											errorMessage.innerHTML = 'Заполните поле "Биография'; 
+										} else if (!isNaN(inputBio.value) || inputBio.value.length < 10) {
+											inputName.style.border = '';
+											inputAge.style.border = '';
+											inputBio.style.border = '2px solid rgba(234, 63, 63, 0.7)';
+											inputBio.style.transition = '1s';
+											errorMessage.style.display = 'block';
+											errorMessage.classList.add('animated','fadeIn');
+											errorMessage.innerHTML = 'Введите не менее 10 символов в поле "Биография"'; 
+											} else {
+												inputName.style.border = '';
+												inputAge.style.border = '';
+												inputBio.style.border = '';
+												errorMessage.style.display = 'none';
+												};
+
+	};
+
+
+
+		
+		readyBtn.addEventListener('click', function() {
+			
+			if (inputName.value[0] !== ' ' && pattern.test(inputName.value) && inputBio.value.length >= 10 && inputName.value.length >= 2 && isNaN(inputBio.value) && isNaN(inputName.value) && inputName.value != '' && inputAge.value.length == 2 && inputAge.value != '' && inputBio.value != '' && inputAge.value >= 35 && inputAge.value <= 90) {
 
 			newMainCardsItem = mainCardsItem[1].cloneNode(true);
 			mainCards.appendChild(newMainCardsItem);
@@ -250,7 +334,7 @@
 			let candidateSex = document.querySelectorAll('.sex')[2];
 			let candidateViews = document.querySelectorAll('.views')[2];
 			let candidateBio = document.querySelectorAll('.bio')[2];
-			console.log(inputAge.value.length);
+			
 				transferCustomInfo();
 				resetResultCount();
 				custom.style.display = 'none';
@@ -270,7 +354,7 @@
 													candidateAge.innerHTML = `${inputAge.value} год`;
 												} else if (age[1] > 1 && age[1] < 5) {
 													candidateAge.innerHTML = `${inputAge.value} года`;
-												} else if (age[1] > 5 && age[1] < 9) {
+												} else if (age[1] >= 5 && age[1] <= 9) {
 													candidateAge.innerHTML = `${inputAge.value} лет`;
 												} else if (age[1] == 0) {
 													candidateAge.innerHTML = `${inputAge.value} лет`;
@@ -300,10 +384,14 @@
 				candidatePhoto.classList.remove('photo-2');
 				candidatePhoto.style.cssText =   `background-image: ${personHair.style.backgroundImage}, \
 																					${personClothes.style.backgroundImage}, \
+																					${personShoes.style.backgroundImage}, \
 																					${personSkin.style.backgroundImage};
 																				   `;
-			   };
 			   newChooseWinnerFor();
+			 } else {
+			 	checkErrors();
+			 };
+			   
 		});
 
 		//Сбросить результаты
@@ -370,12 +458,23 @@
 		});
 
 			//вмешаться в выборы
+			let newOverlay = document.querySelector('.new-overlay');
+			let sorryBtn = document.querySelector('#new-popup-btn');
+			sorryBtn.addEventListener('click', function() {
+				newOverlay.classList.add('animated','fadeOut');
+				setTimeout(function() {
+					newOverlay.style.display = 'none';
+				}, 1000);
+			});
 
 			let crimeBtn = document.querySelector('#crime');
 			crimeBtn.addEventListener('click', function() {
 				counter += 1;
 				if (counter > 1) {
-					alert('Жульничать можно только 1 раз');
+					newOverlay.style.display = 'block';
+					newOverlay.classList.add('animated','fadeIn');
+
+
 				} else {
 					newChooseWinnerFor();
 					let progressBar = document.querySelectorAll('.progress-bar');
@@ -394,26 +493,26 @@
 							b = 0.00;
 							c = 100.00;
 							} else if(a == 0.00 && c < 75) {
-							a = a.toFixed(2);
-							b = (b - 25).toFixed(2);
-							c = (c + 25).toFixed(2);
-						} else if(b == 0.00 && c < 75) {
-							a = (a - 25).toFixed(2);
-							b = b.toFixed(2);
-							c = (c + 25).toFixed(2);
-						} else if (a == b && c < 75) {
-							a = (a - 12.5).toFixed(2);
-							b = (b - 12.5).toFixed(2);
-							c = (c + 25).toFixed(2);
-						} else if(c < 75) {
-							let a1 = ((a * 100) / (a + b)).toFixed(2);
-							let b1 = (100 - a1).toFixed(2);
-							a1 = (a1 * 25 / 100).toFixed(2);
-							a = (a - a1).toFixed(2);
-							b1 = (25 - a1).toFixed(2);
-							b = (b - b1).toFixed(2);
-							c = (c + 25).toFixed(2);
-						}; 
+								a = a.toFixed(2);
+								b = (b - 25).toFixed(2);
+								c = (c + 25).toFixed(2);
+							} else if(b == 0.00 && c < 75) {
+									a = (a - 25).toFixed(2);
+									b = b.toFixed(2);
+									c = (c + 25).toFixed(2);
+								} else if (a == b && c < 75) {
+										a = (a - 12.5).toFixed(2);
+										b = (b - 12.5).toFixed(2);
+										c = (c + 25).toFixed(2);
+									} else if(c < 75) {
+											let a1 = ((a * 100) / (a + b)).toFixed(2);
+											let b1 = (100 - a1).toFixed(2);
+											a1 = (a1 * 25 / 100).toFixed(2);
+											a = (a - a1).toFixed(2);
+											b1 = (25 - a1).toFixed(2);
+											b = (b - b1).toFixed(2);
+											c = (c + 25).toFixed(2);
+										}; 
 
 						progressBar[0].style.height = `${a}%`;
 						progressBar[1].style.height = `${b}%`;

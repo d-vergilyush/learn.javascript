@@ -62,6 +62,20 @@
     margin: 0
     outline: none
 
+.error-message 
+    display: none
+    position: absolute
+    top: 0
+    left: 105%
+    font-size: 12px
+    color: #fff
+    min-width: 170px
+    background: rgba(234, 63, 63, 0.7)
+    padding: 10px
+    text-align: center
+    border-radius: 10px
+    font-family: 'Montserrat'
+
 .main
     min-height: 670px
     padding-top: 10px
@@ -204,6 +218,8 @@
             transition: 1s
             &:hover
                 transform: scale(1.1)
+
+
 .overlay
     position: fixed
     display: block
@@ -225,15 +241,6 @@
         background-color: #ffffff
         transform: translateX(-50%)
         text-align: center
-        &-close
-            position: absolute
-            right: 7px
-            top: -6px
-            cursor: pointer
-            font-size: 40px
-            color: #000
-            font-weight: 300
-            opacity: .5
         &-title
             margin-top: 50px
             color: #1f8ce2
@@ -262,6 +269,49 @@
             cursor: pointer
             background-color: #f5f5f5
             background-image: linear-gradient(to right, #1f8ce2 0%, #2068df 100%)
+.new-overlay
+    position: fixed
+    display: none
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    background-color: rgba(31,140,226,.8)
+    z-index: 3
+    opacity: 1
+    .new-popup
+        position: fixed
+        z-index: 4
+        left: 50%
+        top: 150px
+        width: 570px
+        height: 254px
+        border-radius: 15px
+        background-color: #ffffff
+        transform: translateX(-50%)
+        text-align: center
+        &-title
+            margin-top: 50px
+            color: #1f8ce2
+            font-size: 16px
+            font-weight: 700
+            line-height: 24px
+            text-transform: uppercase
+        &-btn
+            margin-top: 40px
+            width: 270px
+            height: 60px
+            border-radius: 30px
+            border: none
+            color: #fff
+            outline: none
+            font-size: 16px
+            font-weight: 500
+            text-transform: uppercase
+            cursor: pointer
+            background-color: #f5f5f5
+            background-image: linear-gradient(to right, #1f8ce2 0%, #2068df 100%)
+
 .custom
     width: 100%
     min-height: 670px
@@ -279,6 +329,9 @@
         text-align: center
         background-color: #191e25
         background-image: linear-gradient(to right, #262b35 0%, #2f3540 100%)
+        
+
+
         label
             display: block
             opacity: 0.5
@@ -300,6 +353,7 @@
             padding: 0 15px
             &:focus
                 border: 2px solid rgba(31,140,226,.8)
+
         .radio
             display: flex
             align-items: center
