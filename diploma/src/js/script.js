@@ -255,8 +255,8 @@
 		let inputsArr = document.querySelectorAll('.reset-input');
 
 		
-		const pattern = /[а-яё\s]/ig;
-		const badPattern = /\w/i;
+		const pattern = /[^а-яё\s]/i;
+		// const badPattern = /[a-z0-9_-]/i;
 
 
 		// for(let i = 0; i < inputsArr.length; i++) {
@@ -265,33 +265,30 @@
 
 		// };
 
-		inputName.addEventListener('focus', function(checkName) {
-			inputName.value.replace(/^\s+/i, '');
-			checkName();
-		});
-		inputName.addEventListener('change', function(checkName) {
-			inputName.value.replace(/^\s+/i, '');
-			checkName();
-		});
+		inputName.addEventListener('focus', checkName);
+		inputName.addEventListener('change', checkName);
 
 		inputAge.addEventListener('focus', checkAge);
 		inputAge.addEventListener('change', checkAge);
 
 		inputBio.addEventListener('focus', checkBio);
-		// inputBio.addEventListener('change', checkBio);
+		inputBio.addEventListener('change', checkBio);
 
 
 
 
 
 		function checkName() {
+				let a = inputName.value.replace(/^\s+/i, '');
+				inputName.value = a;
+				//console.log(inputName.value.length);
 				if (inputName.value == '') {
 				inputName.style.border = '2px solid rgba(234, 63, 63, 0.7)';
 				inputName.style.transition = '1s';
 				errorMessage.style.display = 'block';
 				errorMessage.classList.add('animated','fadeIn');
 				errorMessage.innerHTML = 'Заполните поле "Фамилия Имя Отчество"'; 
-			} else if (!isNaN(inputName.value) || inputName.value.length < 2 || !pattern.test(inputName.value ) || badPattern.test(inputName.value )) {
+			} else if (!isNaN(inputName.value) || inputName.value.length < 2 || pattern.test(inputName.value )) {
 					inputName.style.border = '2px solid rgba(234, 63, 63, 0.7)';
 					inputName.style.transition = '1s';
 					errorMessage.style.display = 'block';
@@ -356,13 +353,16 @@
 
 
 		function checkErrors() {
+				let a = inputName.value.replace(/^\s+/i, '');
+				inputName.value = a;
+				//console.log(inputName.value.length);
 					if (inputName.value == '') {
 					inputName.style.border = '2px solid rgba(234, 63, 63, 0.7)';
 					inputName.style.transition = '1s';
 					errorMessage.style.display = 'block';
 					errorMessage.classList.add('animated','fadeIn');
 					errorMessage.innerHTML = 'Заполните поле "Фамилия Имя Отчество"'; 
-				} else if (!isNaN(inputName.value) || inputName.value.length < 2 || !pattern.test(inputName.value ) || badPattern.test(inputName.value )) {
+				} else if (!isNaN(inputName.value) || inputName.value.length < 2 || pattern.test(inputName.value )) {
 						inputName.style.border = '2px solid rgba(234, 63, 63, 0.7)';
 						inputName.style.transition = '1s';
 						errorMessage.style.display = 'block';
@@ -419,7 +419,7 @@
 		
 		readyBtn.addEventListener('click', function() {
 			
-			if (!badPattern.test(inputName.value ) && pattern.test(inputName.value) && inputBio.value.length >= 10 && inputName.value.length >= 2 && isNaN(inputBio.value) && isNaN(inputName.value) && inputName.value != '' && inputAge.value.length == 2 && inputAge.value != '' && inputBio.value != '' && inputAge.value >= 35 && inputAge.value <= 90) {
+			if (!pattern.test(inputName.value) && inputBio.value.length >= 10 && inputName.value.length >= 2 && isNaN(inputBio.value) && isNaN(inputName.value) && inputName.value != '' && inputAge.value.length == 2 && inputAge.value != '' && inputBio.value != '' && inputAge.value >= 35 && inputAge.value <= 90) {
 
 			newMainCardsItem = mainCardsItem[1].cloneNode(true);
 			mainCards.appendChild(newMainCardsItem);
@@ -535,19 +535,17 @@
 
 		votingBtn.addEventListener('click', function() {
 			counter = 0;
-			console.log('counter = ' + counter);
 			newChooseWinnerFor();
 			let progressBar = document.querySelectorAll('.progress-bar');
 			let resultCount = document.querySelectorAll('.result-count');
 			
 			function randomVotes() {
-				let a = getrand(0, 100);
-				let b = 100 - a;
-				b = getrand(0, b);
-				let c = 100 - (a + b);
+				let a = parseFloat((Math.random() * 100).toFixed(2));
+				let b = parseFloat(((100 - a) * Math.random()).toFixed(2));
+				let c = (100 - (a + b)).toFixed(2);
 				a = a.toFixed(2);
 				b = b.toFixed(2);
-				c = c.toFixed(2);
+				console.log(+a + +b + +c);
 
 				progressBar[0].style.height = `${a}%`;
 				progressBar[1].style.height = `${b}%`;
@@ -576,12 +574,12 @@
 			let crimeBtn = document.querySelector('#crime');
 			crimeBtn.addEventListener('click', function() {
 				counter += 1;
-				console.log('counter = ' + counter);
+
 				if (counter > 1) {
 					newOverlay.style.display = 'block';
 					newOverlay.classList.remove('fadeOut');
 					newOverlay.classList.add('animated','fadeIn');
-					console.log('counter = ' + counter);
+
 
 
 
@@ -599,9 +597,9 @@
 						console.log('Круче только яйца!');
 					} else {
 							if (c >= 75) {
-							a = 0.00;
-							b = 0.00;
-							c = 100.00;
+							a = 0.01;
+							b = 0.01;
+							c = 99.98;
 							} else if(a == 0.00 && c < 75) {
 								a = a.toFixed(2);
 								b = (b - 25).toFixed(2);
@@ -618,10 +616,11 @@
 											let a1 = ((a * 100) / (a + b)).toFixed(2);
 											let b1 = (100 - a1).toFixed(2);
 											a1 = (a1 * 25 / 100).toFixed(2);
-											a = (a - a1).toFixed(2);
+											a = (a - a1 + 0.39).toFixed(2);
 											b1 = (25 - a1).toFixed(2);
-											b = (b - b1).toFixed(2);
-											c = (c + 25).toFixed(2);
+											b = (b - b1 + 0.43).toFixed(2);
+											c = (100 - a - b).toFixed(2);
+											console.log(+a + +b + +c);
 										}; 
 
 						progressBar[0].style.height = `${a}%`;
