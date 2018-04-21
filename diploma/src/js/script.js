@@ -49,6 +49,7 @@
 		let femaleHair = ['url(img/hair/construct/hair-4.png)', 'url(img/hair/construct/hair-5.png)', 'url(img/hair/construct/hair-6.png)'];
 		let maleClothes = ['url(img/clothes/construct/clothes-1.png)', 'url(img/clothes/construct/clothes-2.png)', 'url(img/clothes/construct/clothes-3.png)'];
 		let femaleClothes = ['url(img/clothes/construct/clothes-4.png)', 'url(img/clothes/construct/clothes-5.png)', 'url(img/clothes/construct/clothes-6.png)'];
+		
 
 
 
@@ -255,14 +256,103 @@
 
 		
 		const pattern = /[а-яё\s]/ig;
-		const badPattern = /[a-z]/i;
+		const badPattern = /\w/i;
 
 
-		for(let i = 0; i < inputsArr.length; i++) {
-			inputsArr[i].addEventListener('blur', checkErrors);
-			inputsArr[i].addEventListener('change', checkErrors);
+		// for(let i = 0; i < inputsArr.length; i++) {
+		// 	inputsArr[i].addEventListener('focus', checkErrors);
+		// 	inputsArr[i].addEventListener('change', checkErrors);
 
+		// };
+
+		inputName.addEventListener('focus', function(checkName) {
+			inputName.value.replace(/^\s+/i, '');
+			checkName();
+		});
+		inputName.addEventListener('change', function(checkName) {
+			inputName.value.replace(/^\s+/i, '');
+			checkName();
+		});
+
+		inputAge.addEventListener('focus', checkAge);
+		inputAge.addEventListener('change', checkAge);
+
+		inputBio.addEventListener('focus', checkBio);
+		// inputBio.addEventListener('change', checkBio);
+
+
+
+
+
+		function checkName() {
+				if (inputName.value == '') {
+				inputName.style.border = '2px solid rgba(234, 63, 63, 0.7)';
+				inputName.style.transition = '1s';
+				errorMessage.style.display = 'block';
+				errorMessage.classList.add('animated','fadeIn');
+				errorMessage.innerHTML = 'Заполните поле "Фамилия Имя Отчество"'; 
+			} else if (!isNaN(inputName.value) || inputName.value.length < 2 || !pattern.test(inputName.value ) || badPattern.test(inputName.value )) {
+					inputName.style.border = '2px solid rgba(234, 63, 63, 0.7)';
+					inputName.style.transition = '1s';
+					errorMessage.style.display = 'block';
+					errorMessage.classList.add('animated','fadeIn');
+					errorMessage.innerHTML = 'Введите не менее двух букв кириллицей в поле "Фамилия Имя Отчество"'; 
+					} else {
+						inputName.style.border = '';
+						errorMessage.style.display = 'none';
+					}
 		};
+
+		//--------------------------------------------------
+
+		function checkAge() {
+			if (inputAge.value == '') {
+											inputAge.style.border = '2px solid rgba(234, 63, 63, 0.7)';
+											inputAge.style.transition = '1s';
+											errorMessage.style.display = 'block';
+											errorMessage.classList.add('animated','fadeIn');
+											errorMessage.innerHTML = 'Заполните поле "Возраст'; 
+											} else if (inputAge.value < 35 || isNaN(inputAge.value)) {
+													inputAge.style.border = '2px solid rgba(234, 63, 63, 0.7)';
+													inputAge.style.transition = '1s';
+													errorMessage.style.display = 'block';
+													errorMessage.classList.add('animated','fadeIn');
+													errorMessage.innerHTML = 'Возраст кандидата должен быть от 35 лет'; 
+													} else if (inputAge.value.length != 2 || inputAge.value > 90) {
+														inputAge.style.border = '2px solid rgba(234, 63, 63, 0.7)';
+														inputAge.style.transition = '1s';
+														errorMessage.style.display = 'block';
+														errorMessage.classList.add('animated','fadeIn');
+														errorMessage.innerHTML = 'Таких старых в президенты не берут!'; 
+													} else {
+														inputAge.style.border = '';
+														errorMessage.style.display = 'none';
+													};
+		};
+
+		//---------------------------------------------------
+
+		function checkBio() {
+			if (inputBio.value == '') {
+					inputBio.style.border = '2px solid rgba(234, 63, 63, 0.7)';
+					inputBio.style.transition = '1s';
+					errorMessage.style.display = 'block';
+					errorMessage.classList.add('animated','fadeIn');
+					errorMessage.innerHTML = 'Заполните поле "Биография'; 
+					} else if (!isNaN(inputBio.value) || inputBio.value.length < 10) {
+							inputBio.style.border = '2px solid rgba(234, 63, 63, 0.7)';
+							inputBio.style.transition = '1s';
+							errorMessage.style.display = 'block';
+							errorMessage.classList.add('animated','fadeIn');
+							errorMessage.innerHTML = 'Введите не менее 10 символов в поле "Биография"'; 
+							} else {
+									inputBio.style.border = '';
+									errorMessage.style.display = 'none';
+									};
+		};
+
+
+
 
 
 		function checkErrors() {
@@ -272,7 +362,7 @@
 					errorMessage.style.display = 'block';
 					errorMessage.classList.add('animated','fadeIn');
 					errorMessage.innerHTML = 'Заполните поле "Фамилия Имя Отчество"'; 
-				} else if (inputName.value.length < 2 || !pattern.test(inputName.value ) || badPattern.test(inputName.value )) {
+				} else if (!isNaN(inputName.value) || inputName.value.length < 2 || !pattern.test(inputName.value ) || badPattern.test(inputName.value )) {
 						inputName.style.border = '2px solid rgba(234, 63, 63, 0.7)';
 						inputName.style.transition = '1s';
 						errorMessage.style.display = 'block';
@@ -395,6 +485,7 @@
 			   newChooseWinnerFor();
 			 } else {
 			 	checkErrors();
+			 	
 			 };
 			   
 		});
@@ -405,6 +496,8 @@
 
 		resetBtn.addEventListener('click', function() {
 			newMainCardsItem.remove();
+			newChooseWinnerFor();
+			checkErrors();
 		});
 		resetBtn.addEventListener('click', toCustomize);
 
@@ -415,8 +508,13 @@
 			let resetInput = document.getElementsByClassName('reset-input');
 			for (let i = 0; i < resetInput.length; i++ ) {
 				resetInput[i].value = '';
+				inputName.style.border = '';
+				inputAge.style.border = '';
+				inputBio.style.border = '';
+				errorMessage.style.display = 'none';
+
 			};
-			newChooseWinnerFor();
+
 		})
 
 		//Провести честное голосование
