@@ -253,10 +253,14 @@
 		errorMessage.classList.add('error-message'); //добавили класс menu-item
 		let inputsArr = document.querySelectorAll('.reset-input');
 
+		
+		const pattern = /[а-яё\s]/ig;
+		const badPattern = /[a-z]/i;
+
+
 		for(let i = 0; i < inputsArr.length; i++) {
-			inputsArr[i].addEventListener('change', checkErrors);
+			inputsArr[i].addEventListener('blur', checkErrors);
 		};
-		const pattern = /[a-zа-я\s]/ig;
 		function checkErrors() {
 					
 			
@@ -267,12 +271,12 @@
 					errorMessage.style.display = 'block';
 					errorMessage.classList.add('animated','fadeIn');
 					errorMessage.innerHTML = 'Заполните поле "Фамилия Имя Отчество"'; 
-				} else if (!isNaN(inputName.value) || inputName.value.length < 2 || !pattern.test(inputName.value || inputName.value[0] === " ")) {
+				} else if (inputName.value.length < 2 || !pattern.test(inputName.value ) || badPattern.test(inputName.value )) {
 						inputName.style.border = '2px solid rgba(234, 63, 63, 0.7)';
 						inputName.style.transition = '1s';
 						errorMessage.style.display = 'block';
 						errorMessage.classList.add('animated','fadeIn');
-						errorMessage.innerHTML = 'Введите не менее двух букв в поле "Фамилия Имя Отчество"'; 
+						errorMessage.innerHTML = 'Введите не менее двух букв кириллицей в поле "Фамилия Имя Отчество"'; 
 						} else if (inputAge.value == '') {
 								inputName.style.border = '';
 								inputAge.style.border = '2px solid rgba(234, 63, 63, 0.7)';
@@ -324,7 +328,7 @@
 		
 		readyBtn.addEventListener('click', function() {
 			
-			if (inputName.value[0] !== ' ' && pattern.test(inputName.value) && inputBio.value.length >= 10 && inputName.value.length >= 2 && isNaN(inputBio.value) && isNaN(inputName.value) && inputName.value != '' && inputAge.value.length == 2 && inputAge.value != '' && inputBio.value != '' && inputAge.value >= 35 && inputAge.value <= 90) {
+			if (!badPattern.test(inputName.value ) && pattern.test(inputName.value) && inputBio.value.length >= 10 && inputName.value.length >= 2 && isNaN(inputBio.value) && isNaN(inputName.value) && inputName.value != '' && inputAge.value.length == 2 && inputAge.value != '' && inputBio.value != '' && inputAge.value >= 35 && inputAge.value <= 90) {
 
 			newMainCardsItem = mainCardsItem[1].cloneNode(true);
 			mainCards.appendChild(newMainCardsItem);
