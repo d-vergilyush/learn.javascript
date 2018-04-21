@@ -260,11 +260,12 @@
 
 		for(let i = 0; i < inputsArr.length; i++) {
 			inputsArr[i].addEventListener('blur', checkErrors);
-		};
-		function checkErrors() {
-					
-			
+			inputsArr[i].addEventListener('change', checkErrors);
 
+		};
+
+
+		function checkErrors() {
 					if (inputName.value == '') {
 					inputName.style.border = '2px solid rgba(234, 63, 63, 0.7)';
 					inputName.style.transition = '1s';
