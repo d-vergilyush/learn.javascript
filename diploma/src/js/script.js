@@ -420,6 +420,8 @@
 		})
 
 		//Провести честное голосование
+		let newOverlay = document.querySelector('.new-overlay');
+		let sorryBtn = document.querySelector('#new-popup-btn');
 		let counter = 0;
 		
 		function chooseWinner(a, b, c) {
@@ -435,6 +437,7 @@
 
 		votingBtn.addEventListener('click', function() {
 			counter = 0;
+			console.log('counter = ' + counter);
 			newChooseWinnerFor();
 			let progressBar = document.querySelectorAll('.progress-bar');
 			let resultCount = document.querySelectorAll('.result-count');
@@ -463,10 +466,10 @@
 		});
 
 			//вмешаться в выборы
-			let newOverlay = document.querySelector('.new-overlay');
-			let sorryBtn = document.querySelector('#new-popup-btn');
+			
 			sorryBtn.addEventListener('click', function() {
 				newOverlay.classList.add('animated','fadeOut');
+
 				setTimeout(function() {
 					newOverlay.style.display = 'none';
 				}, 1000);
@@ -475,9 +478,13 @@
 			let crimeBtn = document.querySelector('#crime');
 			crimeBtn.addEventListener('click', function() {
 				counter += 1;
+				console.log('counter = ' + counter);
 				if (counter > 1) {
 					newOverlay.style.display = 'block';
+					newOverlay.classList.remove('fadeOut');
 					newOverlay.classList.add('animated','fadeIn');
+					console.log('counter = ' + counter);
+
 
 
 				} else {
