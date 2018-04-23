@@ -576,9 +576,9 @@
 					resultCount[0].innerHTML = `${a}%`;
 					resultCount[1].innerHTML = `${b}%`;
 					resultCount[2].innerHTML = `${c}%`;
-				}, 3600);
+				}, 2600);
 
-				setTimeout(chooseWinner(a, b, c), 5000);
+				setTimeout(chooseWinner(a, b, c), 4000);
 			};
 			randomVotes();
 
@@ -658,9 +658,9 @@
 							resultCount[0].innerHTML = `${a}%`;
 							resultCount[1].innerHTML = `${b}%`;
 							resultCount[2].innerHTML = `${c}%`;
-						}, 3600);
+						}, 2600);
 							
-						setTimeout(chooseWinner(a, b, c), 5000);
+						setTimeout(chooseWinner(a, b, c), 4000);
 
 						// function randomVotes() {
 						// 	let a = getrand(0, 75);

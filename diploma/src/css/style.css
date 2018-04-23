@@ -99,15 +99,13 @@
   line-height: 19px;
   -webkit-box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.5);
   box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.5);
-  border: 3px solid transparent;
+  border: 2px solid #f2f2f2;
 }
 
 .main-cards-item-active {
-  border: 3px solid rgba(62, 12, 17, 0.7);
-  -webkit-box-shadow: 0 0 8px 4px inset #deafa7;
-  box-shadow: 0 0 8px 4px inset #deafa7;
-  -webkit-transition: 5.5s;
-  transition: 5.5s;
+  border: 2px solid #9d4074;
+  -webkit-transition: 5s;
+  transition: 5s;
 }
 
 .main-cards-item .candidate-block {
@@ -225,8 +223,8 @@
   background-image: -webkit-gradient(linear, left bottom, left top, from(#302a2c), to(#e4dedf));
   background-image: linear-gradient(to top, #302a2c 0%, #e4dedf 100%);
   border-radius: 5px;
-  -webkit-transition: 4s;
-  transition: 4s;
+  -webkit-transition: 3s;
+  transition: 3s;
 }
 
 .main-cards-item .candidate-block .result .progress-bar-1 {
