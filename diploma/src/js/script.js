@@ -550,31 +550,32 @@
 
 			function addClassForResult() {
 				for(let i = 0; i < resultCount.length; i++) {
-					resultCount[i].classList.toggle('animated', 'fadeIn');
+					resultCount[i].classList.add('fade');
 				}
 			};
 
 
 			function randomVotes() {
+				resultCount[0].innerHTML = '';
+				resultCount[1].innerHTML = '';
+				resultCount[2].innerHTML = '';
 				let a = parseFloat((Math.random() * 100).toFixed(2));
 				let b = parseFloat(((100 - a) * Math.random()).toFixed(2));
 				let c = (100 - (a + b)).toFixed(2);
 				a = a.toFixed(2);
 				b = b.toFixed(2);
 				console.log(+a + +b + +c);
-
+				addClassForResult();
 				progressBar[0].style.height = `${a}%`;
 				progressBar[1].style.height = `${b}%`;
 				progressBar[2].style.height = `${c}%`;
+				setTimeout(function(){
+					resultCount[0].innerHTML = `${a}%`;
+					resultCount[1].innerHTML = `${b}%`;
+					resultCount[2].innerHTML = `${c}%`;
+				}, 3600);
 
-				
-				resultCount[0].innerHTML = `${a}%`;
-				resultCount[1].innerHTML = `${b}%`;
-				resultCount[2].innerHTML = `${c}%`;
-				
-							
-
-				setTimeout(chooseWinner(a, b, c), 1600);
+				setTimeout(chooseWinner(a, b, c), 3600);
 			};
 			randomVotes();
 
@@ -584,7 +585,6 @@
 			
 			sorryBtn.addEventListener('click', function() {
 				newOverlay.classList.add('animated','fadeOut');
-
 				setTimeout(function() {
 					newOverlay.style.display = 'none';
 				}, 1000);
@@ -603,6 +603,10 @@
 					newChooseWinnerFor();
 					let progressBar = document.querySelectorAll('.progress-bar');
 					let resultCount = document.querySelectorAll('.result-count');
+					resultCount[0].innerHTML = '';
+					resultCount[1].innerHTML = '';
+					resultCount[2].innerHTML = '';
+
 					let a = parseInt(progressBar[0].style.height);
 					let b = parseInt(progressBar[1].style.height);
 					let c = parseInt(progressBar[2].style.height);
@@ -644,22 +648,13 @@
 						progressBar[1].style.height = `${b}%`;
 						progressBar[2].style.height = `${c}%`;
 
+						setTimeout(function(){
 							resultCount[0].innerHTML = `${a}%`;
 							resultCount[1].innerHTML = `${b}%`;
 							resultCount[2].innerHTML = `${c}%`;
-							for (let i = 0; i < 3; i++) {
-								resultCount[i].classList.add('numbers');
-							};
+						}, 3600);
 							
-
-
-
-						setTimeout(chooseWinner(a, b, c), 1600);
-
-						resultCount[0].innerHTML = `${a}%`;
-						resultCount[1].innerHTML = `${b}%`;
-						resultCount[2].innerHTML = `${c}%`;
-						setTimeout(chooseWinner(a, b, c), 0);
+						setTimeout(chooseWinner(a, b, c), 3600);
 
 						// function randomVotes() {
 						// 	let a = getrand(0, 75);
