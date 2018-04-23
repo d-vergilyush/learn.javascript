@@ -51,7 +51,6 @@
   outline: none;
 }
 
-
 .error-message {
   display: none;
   position: absolute;
@@ -100,12 +99,15 @@
   line-height: 19px;
   -webkit-box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.5);
   box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.5);
+  border: 3px solid transparent;
 }
 
 .main-cards-item-active {
-  background-color: #f2f2f2;
-  -webkit-transition: 2.5s;
-  transition: 2.5s;
+  border: 3px solid rgba(62, 12, 17, 0.7);
+  -webkit-box-shadow: 0 0 8px 4px inset #deafa7;
+  box-shadow: 0 0 8px 4px inset #deafa7;
+  -webkit-transition: 5.5s;
+  transition: 5.5s;
 }
 
 .main-cards-item .candidate-block {
@@ -197,9 +199,11 @@
 }
 
 .main-cards-item .candidate-block .result-count {
-  min-width: 52px;
+  min-width: 57px;
   font-size: 22px;
   font-weight: 700;
+  -webkit-transition: 2.5s;
+  transition: 2.5s;
 }
 
 .main-cards-item .candidate-block .result .progress {
@@ -234,7 +238,7 @@
 }
 
 .main-cards-item .name {
-  font-size: 17px;
+  font-size: 18px;
   font-weight: 700;
   line-height: 24px;
   text-transform: uppercase;
@@ -242,7 +246,7 @@
 }
 
 .main-cards-item .age {
-  font-size: 17px;
+  font-size: 18px;
   font-weight: 500;
   margin-top: 5px;
   margin-bottom: 10px;
@@ -250,7 +254,7 @@
 
 .main-cards-item .sex {
   color: #3e0c11;
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 500;
   margin-bottom: 10px;
   display: inline-block;
@@ -258,13 +262,13 @@
 
 .main-cards-item .views {
   color: #3e0c11;
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 700;
   margin-bottom: 15px;
 }
 
 .main-cards-item .bio {
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 300;
   overflow: hidden;
   max-width: 100%;

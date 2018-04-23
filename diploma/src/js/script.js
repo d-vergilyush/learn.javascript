@@ -556,9 +556,9 @@
 
 
 			function randomVotes() {
-				resultCount[0].innerHTML = '';
-				resultCount[1].innerHTML = '';
-				resultCount[2].innerHTML = '';
+				resultCount[0].style.color = '#f2f2f2';
+				resultCount[1].style.color = '#f2f2f2';
+				resultCount[2].style.color = '#f2f2f2';
 				let a = parseFloat((Math.random() * 100).toFixed(2));
 				let b = parseFloat(((100 - a) * Math.random()).toFixed(2));
 				let c = (100 - (a + b)).toFixed(2);
@@ -570,12 +570,15 @@
 				progressBar[1].style.height = `${b}%`;
 				progressBar[2].style.height = `${c}%`;
 				setTimeout(function(){
+					resultCount[0].style.color = '';
+					resultCount[1].style.color = '';
+					resultCount[2].style.color = '';
 					resultCount[0].innerHTML = `${a}%`;
 					resultCount[1].innerHTML = `${b}%`;
 					resultCount[2].innerHTML = `${c}%`;
 				}, 3600);
 
-				setTimeout(chooseWinner(a, b, c), 3600);
+				setTimeout(chooseWinner(a, b, c), 5000);
 			};
 			randomVotes();
 
@@ -603,9 +606,9 @@
 					newChooseWinnerFor();
 					let progressBar = document.querySelectorAll('.progress-bar');
 					let resultCount = document.querySelectorAll('.result-count');
-					resultCount[0].innerHTML = '';
-					resultCount[1].innerHTML = '';
-					resultCount[2].innerHTML = '';
+					resultCount[0].style.color = '#f2f2f2';
+					resultCount[1].style.color = '#f2f2f2';
+					resultCount[2].style.color = '#f2f2f2';
 
 					let a = parseInt(progressBar[0].style.height);
 					let b = parseInt(progressBar[1].style.height);
@@ -649,12 +652,15 @@
 						progressBar[2].style.height = `${c}%`;
 
 						setTimeout(function(){
+							resultCount[0].style.color = '';
+							resultCount[1].style.color = '';
+							resultCount[2].style.color = '';
 							resultCount[0].innerHTML = `${a}%`;
 							resultCount[1].innerHTML = `${b}%`;
 							resultCount[2].innerHTML = `${c}%`;
 						}, 3600);
 							
-						setTimeout(chooseWinner(a, b, c), 3600);
+						setTimeout(chooseWinner(a, b, c), 5000);
 
 						// function randomVotes() {
 						// 	let a = getrand(0, 75);
