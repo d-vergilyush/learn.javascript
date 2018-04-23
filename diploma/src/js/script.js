@@ -15,9 +15,16 @@
 				main.classList.add('animated','fadeOut');
 				main.style.display = 'none';
 				custom.style.display = 'flex';
-				for (let i = 0; i < customTools.length; i++ ) {
-				slideInDown.call(customTools[i])
-				};
+				// for (let i = 0; i < customTools.length; i++ ) {
+				// slideInDown.call(customTools[i])
+				// };
+				customTools[0].classList.add('animated','slideInDown');
+				customTools[0].style.display = 'block';
+				customTools[1].classList.add('animated','slideInUp');
+				customTools[1].style.display = 'block';
+				customTools[2].classList.add('animated','slideInDown');
+				customTools[2].style.display = 'block';
+
 
 			}
 
@@ -283,13 +290,13 @@
 				inputName.value = a;
 				//console.log(inputName.value.length);
 				if (inputName.value == '') {
-				inputName.style.border = '2px solid rgba(234, 63, 63, 0.7)';
+				inputName.style.border = '2px solid rgba(176, 0, 2, 0.4)';
 				inputName.style.transition = '1s';
 				errorMessage.style.display = 'block';
 				errorMessage.classList.add('animated','fadeIn');
 				errorMessage.innerHTML = 'Заполните поле "Фамилия Имя Отчество"'; 
 			} else if (!isNaN(inputName.value) || inputName.value.length < 2 || pattern.test(inputName.value )) {
-					inputName.style.border = '2px solid rgba(234, 63, 63, 0.7)';
+					inputName.style.border = '2px solid rgba(176, 0, 2, 0.4)';
 					inputName.style.transition = '1s';
 					errorMessage.style.display = 'block';
 					errorMessage.classList.add('animated','fadeIn');
@@ -304,19 +311,19 @@
 
 		function checkAge() {
 			if (inputAge.value == '') {
-											inputAge.style.border = '2px solid rgba(234, 63, 63, 0.7)';
+											inputAge.style.border = '2px solid rgba(176, 0, 2, 0.4)';
 											inputAge.style.transition = '1s';
 											errorMessage.style.display = 'block';
 											errorMessage.classList.add('animated','fadeIn');
 											errorMessage.innerHTML = 'Заполните поле "Возраст'; 
 											} else if (inputAge.value < 35 || isNaN(inputAge.value)) {
-													inputAge.style.border = '2px solid rgba(234, 63, 63, 0.7)';
+													inputAge.style.border = '2px solid rgba(176, 0, 2, 0.4)';
 													inputAge.style.transition = '1s';
 													errorMessage.style.display = 'block';
 													errorMessage.classList.add('animated','fadeIn');
 													errorMessage.innerHTML = 'Возраст кандидата должен быть от 35 лет'; 
 													} else if (inputAge.value.length != 2 || inputAge.value > 90) {
-														inputAge.style.border = '2px solid rgba(234, 63, 63, 0.7)';
+														inputAge.style.border = '2px solid rgba(176, 0, 2, 0.4)';
 														inputAge.style.transition = '1s';
 														errorMessage.style.display = 'block';
 														errorMessage.classList.add('animated','fadeIn');
@@ -331,13 +338,13 @@
 
 		function checkBio() {
 			if (inputBio.value == '') {
-					inputBio.style.border = '2px solid rgba(234, 63, 63, 0.7)';
+					inputBio.style.border = '2px solid rgba(176, 0, 2, 0.4)';
 					inputBio.style.transition = '1s';
 					errorMessage.style.display = 'block';
 					errorMessage.classList.add('animated','fadeIn');
 					errorMessage.innerHTML = 'Заполните поле "Биография'; 
 					} else if (!isNaN(inputBio.value) || inputBio.value.length < 10) {
-							inputBio.style.border = '2px solid rgba(234, 63, 63, 0.7)';
+							inputBio.style.border = '2px solid rgba(176, 0, 2, 0.4)';
 							inputBio.style.transition = '1s';
 							errorMessage.style.display = 'block';
 							errorMessage.classList.add('animated','fadeIn');
@@ -357,34 +364,34 @@
 				inputName.value = a;
 				//console.log(inputName.value.length);
 					if (inputName.value == '') {
-					inputName.style.border = '2px solid rgba(234, 63, 63, 0.7)';
+					inputName.style.border = '2px solid rgba(176, 0, 2, 0.4)';
 					inputName.style.transition = '1s';
 					errorMessage.style.display = 'block';
 					errorMessage.classList.add('animated','fadeIn');
 					errorMessage.innerHTML = 'Заполните поле "Фамилия Имя Отчество"'; 
 				} else if (!isNaN(inputName.value) || inputName.value.length < 2 || pattern.test(inputName.value )) {
-						inputName.style.border = '2px solid rgba(234, 63, 63, 0.7)';
+						inputName.style.border = '2px solid rgba(176, 0, 2, 0.4)';
 						inputName.style.transition = '1s';
 						errorMessage.style.display = 'block';
 						errorMessage.classList.add('animated','fadeIn');
 						errorMessage.innerHTML = 'Введите не менее двух букв кириллицей в поле "Фамилия Имя Отчество"'; 
 						} else if (inputAge.value == '') {
 								inputName.style.border = '';
-								inputAge.style.border = '2px solid rgba(234, 63, 63, 0.7)';
+								inputAge.style.border = '2px solid rgba(176, 0, 2, 0.4)';
 								inputAge.style.transition = '1s';
 								errorMessage.style.display = 'block';
 								errorMessage.classList.add('animated','fadeIn');
 								errorMessage.innerHTML = 'Заполните поле "Возраст'; 
 								} else if (inputAge.value < 35 || isNaN(inputAge.value)) {
 										inputName.style.border = '';
-										inputAge.style.border = '2px solid rgba(234, 63, 63, 0.7)';
+										inputAge.style.border = '2px solid rgba(176, 0, 2, 0.4)';
 										inputAge.style.transition = '1s';
 										errorMessage.style.display = 'block';
 										errorMessage.classList.add('animated','fadeIn');
 										errorMessage.innerHTML = 'Возраст кандидата должен быть от 35 лет'; 
 										} else if (inputAge.value.length != 2 || inputAge.value > 90) {
 											inputName.style.border = '';
-											inputAge.style.border = '2px solid rgba(234, 63, 63, 0.7)';
+											inputAge.style.border = '2px solid rgba(176, 0, 2, 0.4)';
 											inputAge.style.transition = '1s';
 											errorMessage.style.display = 'block';
 											errorMessage.classList.add('animated','fadeIn');
@@ -392,7 +399,7 @@
 										} else if (inputBio.value == '') {
 											inputName.style.border = '';
 											inputAge.style.border = '';
-											inputBio.style.border = '2px solid rgba(234, 63, 63, 0.7)';
+											inputBio.style.border = '2px solid rgba(176, 0, 2, 0.4)';
 											inputBio.style.transition = '1s';
 											errorMessage.style.display = 'block';
 											errorMessage.classList.add('animated','fadeIn');
@@ -400,7 +407,7 @@
 										} else if (!isNaN(inputBio.value) || inputBio.value.length < 10) {
 											inputName.style.border = '';
 											inputAge.style.border = '';
-											inputBio.style.border = '2px solid rgba(234, 63, 63, 0.7)';
+											inputBio.style.border = '2px solid rgba(176, 0, 2, 0.4)';
 											inputBio.style.transition = '1s';
 											errorMessage.style.display = 'block';
 											errorMessage.classList.add('animated','fadeIn');
@@ -426,7 +433,7 @@
 			let candidatePhoto = document.querySelectorAll('.photo')[2];
 			let candidateName = document.querySelectorAll('.name')[2];
 			let candidateAge = document.querySelectorAll('.age')[2];
-			let candidateSex = document.querySelectorAll('.sex')[2];
+			//let candidateSex = document.querySelectorAll('.sex')[2];
 			let candidateViews = document.querySelectorAll('.views')[2];
 			let candidateBio = document.querySelectorAll('.bio')[2];
 			
@@ -458,9 +465,9 @@
 						candidateBio.innerHTML = inputBio.value;
 					}
 
-					if (inputSex[0].checked) {
-						candidateSex.innerHTML = 'Мужской';
-					} else candidateSex.innerHTML = 'Женский';
+					// if (inputSex[0].checked) {
+					// 	candidateSex.innerHTML = 'Мужской';
+					// } else candidateSex.innerHTML = 'Женский';
 				};
 
 				
@@ -473,6 +480,7 @@
 					let resultCount = document.querySelectorAll('.result-count');
 					for (let i = 0; i < resultCount.length; i++ ) {
 					resultCount[i].innerHTML = '0.00%';
+					resultCount[i].classList.remove('numbers');
 					};
 				};
 
@@ -538,7 +546,15 @@
 			newChooseWinnerFor();
 			let progressBar = document.querySelectorAll('.progress-bar');
 			let resultCount = document.querySelectorAll('.result-count');
-			
+
+
+			function addClassForResult() {
+				for(let i = 0; i < resultCount.length; i++) {
+					resultCount[i].classList.toggle('animated', 'fadeIn');
+				}
+			};
+
+
 			function randomVotes() {
 				let a = parseFloat((Math.random() * 100).toFixed(2));
 				let b = parseFloat(((100 - a) * Math.random()).toFixed(2));
@@ -550,12 +566,15 @@
 				progressBar[0].style.height = `${a}%`;
 				progressBar[1].style.height = `${b}%`;
 				progressBar[2].style.height = `${c}%`;
+
+				
 				resultCount[0].innerHTML = `${a}%`;
 				resultCount[1].innerHTML = `${b}%`;
 				resultCount[2].innerHTML = `${c}%`;
+				
+							
 
-				setTimeout(chooseWinner(a, b, c), 0);
-
+				setTimeout(chooseWinner(a, b, c), 1600);
 			};
 			randomVotes();
 
@@ -580,9 +599,6 @@
 					newOverlay.classList.remove('fadeOut');
 					newOverlay.classList.add('animated','fadeIn');
 
-
-
-
 				} else {
 					newChooseWinnerFor();
 					let progressBar = document.querySelectorAll('.progress-bar');
@@ -590,6 +606,7 @@
 					let a = parseInt(progressBar[0].style.height);
 					let b = parseInt(progressBar[1].style.height);
 					let c = parseInt(progressBar[2].style.height);
+					
 
 					let multiplier;
 
@@ -626,6 +643,19 @@
 						progressBar[0].style.height = `${a}%`;
 						progressBar[1].style.height = `${b}%`;
 						progressBar[2].style.height = `${c}%`;
+
+							resultCount[0].innerHTML = `${a}%`;
+							resultCount[1].innerHTML = `${b}%`;
+							resultCount[2].innerHTML = `${c}%`;
+							for (let i = 0; i < 3; i++) {
+								resultCount[i].classList.add('numbers');
+							};
+							
+
+
+
+						setTimeout(chooseWinner(a, b, c), 1600);
+
 						resultCount[0].innerHTML = `${a}%`;
 						resultCount[1].innerHTML = `${b}%`;
 						resultCount[2].innerHTML = `${c}%`;

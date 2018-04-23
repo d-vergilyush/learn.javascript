@@ -1,22 +1,11 @@
-@font-face 
-    font-family: 'Montserrat'
-    src: url('../fonts/Montserrat-Regular.woff2') format('woff2'), url('../fonts/Montserrat-Regular.woff') format('woff')
-    font-weight: normal
-    font-style: normal
+/* Colors */
+$dark-color: #302a2c
+$color: #3e0c11
+$light-text-color: #f9fbfd
+$btn-pink: #daafc2
+$btn-light: #c8cba5
 
 
-@font-face 
-    font-family: 'Montserrat'
-    src: url('../fonts/Montserrat-Bold.woff2') format('woff2'), url('../fonts/Montserrat-Bold.woff') format('woff')
-    font-weight: bold
-    font-style: normal
-
-
-@font-face 
-    font-family: 'Montserrat'
-    src: url('../fonts/Montserrat-Medium.woff2') format('woff2'), url('../fonts/Montserrat-Medium.woff') format('woff')
-    font-weight: 500
-    font-style: normal
 
 @font-face 
     font-family: "Flaticon"
@@ -24,6 +13,9 @@
     src: url("../fonts/Flaticon.eot?#iefix") format("embedded-opentype"), url("../fonts/Flaticon.woff") format("woff"), url("../fonts/Flaticon.ttf") format("truetype"), url("../fonts/Flaticon.svg#Flaticon") format("svg")
     font-weight: normal
     font-style: normal
+
+
+
 
 
 @media screen and (-webkit-min-device-pixel-ratio:0) 
@@ -45,59 +37,66 @@
     content: "\f100"
     width: 7px
     height: 12px
-    color: #1f8ce2
+    color: $btn-pink
     line-height: 40px
     margin-left: 12px
 .flaticon-left-arrow:before  
     content: "\f101"
     width: 7px
     height: 12px
-    color: #1f8ce2 
+    color: $btn-pink
     line-height: 40px
     margin-left: 8px
 
 *
     box-sizing: border-box
-    font-family: 'Montserrat'
+    font-family: 'Cormorant Garamond', 'serif'
     margin: 0
     outline: none
 
 .error-message 
     display: none
     position: absolute
-    top: 0
-    left: 105%
-    font-size: 12px
-    color: #fff
+    top: 2%
+    left: 104%
+    font-size: 14px
+    color: $light-text-color
     min-width: 170px
-    background: rgba(234, 63, 63, 0.7)
+    background: rgba(#b00002, 0.5)
     padding: 10px
     text-align: center
     border-radius: 10px
-    font-family: 'Montserrat'
+    box-shadow: 0px 0px 10px rgba(251,251,251,.3)
+
 
 .main
     min-height: 670px
     padding-top: 10px
+    background: url(../img/22.jpg) center no-repeat
+    background-size: cover
+    user-select: none
     &-cards
         display: flex
         justify-content: space-around
         &-item
             text-align: center
             width: 370px
-            min-height: 540px
+            min-height: 510px
             padding: 15px
             border-radius: 15px
             border: none 
             background-color: #f2f2f2
-            font-size: 11px
+            font-size: 16px
             font-weight: 500
             line-height: 19px
-            box-shadow: 0px 0px 30px rgba(0,0,0,.4)
-            border: 3px solid transparent
+            box-shadow: 0px 0px 30px rgba(0,0,0,.5)
+            //border: 3px solid transparent
             &-active
-                border: 3px solid #1f8ce2
-                transition: 1.5s
+                //border: 3px solid rgba(55, 50, 71, 0.9)
+                //box-shadow:  0 0 8px 4px inset #deafa7
+                background-color: #f2f2f2
+
+                transition: 2.5s
             .candidate-block
                 height: 200px
                 display: flex
@@ -150,53 +149,61 @@
                     align-item: center
                     justify-content: center
                     text-align: center
-                    font-size: 18px
-                    font-weight: bold
+                    font-size: 22px
+                    &-count
+                        min-width: 52px
+                        font-size: 22px
+                        font-weight: 700
+
                     .progress
                         display: flex
                         margin: 0 auto
                         margin-top: 10px
                         width: 10px
                         height: 160px
-                        border-radius: 10px
-                        background-color: rgba(31,140,226,.1)
+                        border-radius: 5px
+                        background-color: rgba(222, 175, 167, 0.15);
                         &-bar
                             align-self: flex-end
                             width: 10px
-                            border-radius: 10px
-                            background-color: rgba(31,140,226,1)
-                            transition: 1.5s
+                            background-image: linear-gradient(to top, $dark-color 0%, #e4dedf 100%)
+                            border-radius: 5px
+                            //background-color: #4e4051
+                            transition: 3s
                             &-1
                                 height: 35%
                             &-2
                                 height: 65%
             .name
-                font-size: 16px
+                font-size: 17px
                 font-weight: 700
                 line-height: 24px
                 text-transform: uppercase
                 margin-top: 20px
             .age
-                font-size: 16px
+                font-size: 17px
                 font-weight: 500
-                margin-top: 8px
+                margin-top: 5px
                 margin-bottom: 10px
 
             .sex
-                color: #1f8ce2
+                color: $color
                 font-size: 16px
                 font-weight: 500
                 margin-bottom: 10px
+                display: inline-block
 
             .views
-                color: #1f8ce2
+                color: $color
                 font-size: 16px
-                font-weight: 500
-                margin-bottom: 10px
+                font-weight: 700
+
+                margin-bottom: 15px
+                //display: inline-block
 
             .bio
-                font-size: 13px
-                font-weight: 400
+                font-size: 16px
+                font-weight: 300
                 overflow: hidden
                 max-width: 100%
 
@@ -204,22 +211,27 @@
         display: flex
         justify-content: space-around
         .btn
+            font-family: 'Exo 2'
             margin-top: 30px
             width: 280px
             height: 60px
             line-height: 60px  
             border-radius: 30px
             background-color: #f5f5f5
-            background-image: linear-gradient(to right, #1f8ce2 0%, #2068df 100%)
-            color: #fff
+            background-image: linear-gradient(to right, $btn-light 0%, $btn-pink 80%)
+            color: $dark-color
             text-transform: uppercase
             text-align: center
-            font-size: 13px
+            font-size: 14px
             font-weight: 500
             cursor: pointer
-            transition: 1s
+            transition: 0.5s
             &:hover
-                transform: scale(1.1)
+                //transform: scale(1.1)
+                background-color: $btn-pink
+                box-shadow: 0 0 10px #fff
+                cursor: pointer
+
 
 
 .overlay
@@ -229,7 +241,8 @@
     left: 0
     width: 100%
     height: 100%
-    background-color: rgba(31,140,226,.8)
+    background-color: rgba($dark-color, 0.7)
+    opacity: 0.8
     z-index: 3
     opacity: 1
     .popup
@@ -240,37 +253,46 @@
         width: 570px
         height: 254px
         border-radius: 15px
-        background-color: #ffffff
+        background-color: $light-text-color
         transform: translateX(-50%)
         text-align: center
+        user-select: none
         &-title
             margin-top: 50px
-            color: #1f8ce2
+            color: $color
             font-size: 16px
-            font-weight: 700
+            font-weight: 500
             line-height: 24px
             text-transform: uppercase
+            // letter-spacing: 1.5px
         &-subtitle
-            margin-top: 14px
-            color: #1c2028
-            font-size: 16px
+            margin-top: 15px
+            color: $dark-color
+            font-size: 19px
             font-weight: 700
             line-height: 24px
             text-transform: uppercase
         &-btn
-            margin-top: 40px
+            font-family: 'Exo 2', 'sans-serif'
+            margin-top: 30px
             width: 270px
             height: 60px
             border-radius: 30px
             border: none
-            color: #fff
+            color: $dark-color
             outline: none
-            font-size: 16px
+            font-size: 14px
             font-weight: 500
             text-transform: uppercase
             cursor: pointer
-            background-color: #f5f5f5
-            background-image: linear-gradient(to right, #1f8ce2 0%, #2068df 100%)
+            background-color: $btn-light
+            background-image: linear-gradient(to right, $btn-light 0%, $btn-pink 80%)
+            transition: 0.5s
+            &:hover
+                //transform: scale(1.1)
+                background-color: $btn-pink
+                box-shadow: 0 0 15px $dark-color
+                cursor: pointer
 .new-overlay
     position: fixed
     display: none
@@ -278,7 +300,8 @@
     left: 0
     width: 100%
     height: 100%
-    background-color: rgba(31,140,226,.8)
+    background-color: rgba($dark-color, 0.7)
+    opacity: 0.8
     z-index: 3
     opacity: 1
     .new-popup
@@ -287,38 +310,49 @@
         left: 50%
         top: 150px
         width: 570px
-        height: 254px
+        height: 234px
         border-radius: 15px
-        background-color: #ffffff
+        background-color: $light-text-color
         transform: translateX(-50%)
         text-align: center
+        user-select: none
         &-title
             margin-top: 50px
-            color: #1f8ce2
+            color: $dark-color
             font-size: 16px
             font-weight: 700
             line-height: 24px
             text-transform: uppercase
         &-btn
+            font-family: 'Exo 2', 'sans-serif'
             margin-top: 40px
             width: 270px
             height: 60px
             border-radius: 30px
             border: none
-            color: #fff
+            color: $dark-color
             outline: none
-            font-size: 16px
+            font-size: 14px
             font-weight: 500
             text-transform: uppercase
             cursor: pointer
-            background-color: #f5f5f5
-            background-image: linear-gradient(to right, #1f8ce2 0%, #2068df 100%)
+            background-color: $btn-light
+            background-image: linear-gradient(to right, $btn-light 0%, $btn-pink 80%)
+            transition: 0.5s
+            &:hover
+                //transform: scale(1.1)
+                background-color: $btn-pink
+                box-shadow: 0 0 15px $dark-color
+                cursor: pointer
+
 
 .custom
     width: 100%
     min-height: 670px
     z-index: 6
     background-color: rgba(28,32,40,.06)
+    background: url(../img/205.jpg) 48% 100% no-repeat
+    background-size: cover
     display: none
     justify-content: space-around
     padding-top: 30px
@@ -329,7 +363,7 @@
         height: 600px
         border-radius: 10px
         text-align: center
-        background-color: #191e25
+        background-color: $dark-color
         background-image: linear-gradient(to right, #262b35 0%, #2f3540 100%)
         
 
@@ -337,9 +371,9 @@
         label
             display: block
             opacity: 0.5
-            color: #ffffff
-            font-size: 10px
-            font-weight: 400
+            color: #fff
+            font-size: 14px
+            font-weight: 300
             margin-bottom: 12px
             margin-top: 20px
         input[type="text"]
@@ -348,27 +382,13 @@
             border-radius: 30px
             background-color: #1c2028
             border: none
-            color: #ffffff
-            font-size: 13px
-            font-weight: 500
+            color: #fff
+            font-size: 15px
+            font-weight: 400
             text-align: center
             padding: 0 15px
             &:focus
-                border: 2px solid rgba(31,140,226,.8)
-        input[type="text"]
-            width: 270px
-            height: 60px
-            border-radius: 30px
-            background-color: #1c2028
-            border: none
-            color: #ffffff
-            font-size: 13px
-            font-weight: 500
-            text-align: center
-            padding: 0 15px
-            &:focus
-                border: 2px solid rgba(31,140,226,.8)
-
+                border: 2px solid rgba($btn-pink, .7)
         .radio
             display: flex
             align-items: center
@@ -379,7 +399,7 @@
             label
                 margin: 0
                 margin-right: 30px
-                font-size: 16px
+                font-size: 15px
                 opacity: .8
             input[type="radio"]
                 margin-right: 15px
@@ -389,32 +409,39 @@
             border-radius: 30px
             background-color: #1c2028
             border: none
-            color: #ffffff
-            font-size: 13px
-            font-weight: 500
+            color: #fff
+            font-size: 15px
+            font-weight: 400
             text-align: center
             text-align-last: center
             padding: 0 15px
             -webkit-appearance: none
             -ms-appearance: none
             appearance: none!important
+            
+
         textarea
+            font-size: 15px
+            font-weight: 300
             width: 270px
             height: 115px
             border-radius: 30px
             background-color: #1c2028
             border: none
-            color: #ffffff
+            color: #fff
             padding: 10px 20px
             resize: none
+            &:focus
+                border: 2px solid rgba($btn-pink, .7)
+
         .cleaner-btn
-            color: #2068df
+            color: $btn-pink
             width: 270px
             height: 32px
             border-radius: 30px
             background-color: #1c2028
             border: none
-            font-size: 14px
+            font-size: 13px
             font-weight: 500
             text-align: center
             margin: 20px auto
@@ -422,7 +449,7 @@
             padding: 9px
             transition: 0.5s
             &:hover
-                box-shadow: 0 0 15px #2068df
+                box-shadow: 0 0 15px $btn-pink
                 cursor: pointer
 
 
@@ -434,7 +461,7 @@
         .person
             width: 230px
             height: 500px
-            margin: 0 auto
+            margin: 35px auto 0
             &-skin
                 position: absolute
                 margin-top: 30px
@@ -480,21 +507,28 @@
         .btn
             display: block
             margin: 0 auto
-            margin-top: 40px
-            width: 270px
-            height: 60px
-            line-height: 60px
-            border-radius: 30px
-            border: none
-            color: #fff
+            margin-top: 15px
+            width: 150px
+            height: 50px
+            line-height: 45px
+            border-radius: 10px
+            border: 2px solid $btn-pink
+            color:  $btn-pink
             outline: none
-            font-size: 13px
+            font-size: 20px
             font-weight: 500
             text-transform: uppercase
             text-align: center
             cursor: pointer
-            background-color: #f5f5f5
-            background-image: linear-gradient(to right, #1f8ce2 0%, #2068df 100%)
+            background-color: transparent
+            font-family: 'Exo 2', 'sans-serif'
+            box-shadow: 0 0 15px $btn-pink
+            user-select: none
+            transition: 0.5s
+            &:hover
+                box-shadow: 0 0 10px #fff
+                cursor: pointer
+                text-shadow: 0 0 0.5px #fff
 
     &-style
         display: none
@@ -505,11 +539,12 @@
         background-color: #191e25
         background-image: linear-gradient(to right, #262b35 0%, #2f3540 100%)
         .style-text
-            color: #ffffff
-            font-size: 12px
-            font-weight: 500
+            color: #fff
+            font-size: 14px
+            font-weight: 300
             text-align: center
             margin-bottom: 10px
+            opacity: 0.5
         .prev, .next
             width: 40px
             height: 40px
@@ -518,7 +553,7 @@
             cursor: pointer
             transition: 0.5s
             &:hover
-                box-shadow: 0 0 15px #2068df
+                box-shadow: 0 0 15px #deafa7
         .skin, .hair,.clothes
             display: flex
             justify-content: space-around
@@ -546,42 +581,42 @@
             &-1
                 width: 160px
                 height: 80px
-                background: #f2f2f2 url(../img/hair/slide/hair-1.png) center no-repeat
+                background: $light-text-color url(../img/hair/slide/hair-1.png) center no-repeat
                 background-size: 40%
                 border-radius: 10px
             &-2
                 display: none
                 width: 160px
                 height: 80px
-                background: #f2f2f2 url(../img/hair/slide/hair-2.png) center no-repeat
+                background: $light-text-color url(../img/hair/slide/hair-2.png) center no-repeat
                 background-size: 40%
                 border-radius: 10px
             &-3
                 display: none
                 width: 160px
                 height: 80px
-                background: #f2f2f2 url(../img/hair/slide/hair-3.png) center no-repeat
+                background: $light-text-color url(../img/hair/slide/hair-3.png) center no-repeat
                 background-size: 40%
                 border-radius: 10px
             &-4
                 display: none
                 width: 160px
                 height: 80px
-                background: #f2f2f2 url(../img/hair/slide/hair-4.png) center no-repeat
+                background: $light-text-color url(../img/hair/slide/hair-4.png) center no-repeat
                 background-size: 40%
                 border-radius: 10px
             &-5
                 display: none
                 width: 160px
                 height: 80px
-                background: #f2f2f2 url(../img/hair/slide/hair-5.png) center no-repeat
+                background: $light-text-color url(../img/hair/slide/hair-5.png) center no-repeat
                 background-size: 40%
                 border-radius: 10px
             &-6
                 display: none
                 width: 160px
                 height: 80px
-                background: #f2f2f2 url(../img/hair/slide/hair-6.png) center no-repeat
+                background: $light-text-color url(../img/hair/slide/hair-6.png) center no-repeat
                 background-size: 40%
                 border-radius: 10px
 
@@ -589,42 +624,41 @@
             &-1
                 width: 160px
                 height: 80px
-                background: #aeaeae url(../img/clothes/slide/clothes-1.png) center no-repeat
+                background: $btn-pink url(../img/clothes/slide/clothes-1.png) center no-repeat
                 background-size: 20%
                 border-radius: 10px
             &-2
                 display: none
                 width: 160px
                 height: 80px
-                background: #aeaeae url(../img/clothes/slide/clothes-2.png) center no-repeat
+                background: $btn-pink url(../img/clothes/slide/clothes-2.png) center no-repeat
                 background-size: 20%
                 border-radius: 10px
             &-3
                 display: none
                 width: 160px
                 height: 80px
-                background: #aeaeae url(../img/clothes/slide/clothes-3.png) center no-repeat
+                background: $btn-pink url(../img/clothes/slide/clothes-3.png) center no-repeat
                 background-size: 20%
                 border-radius: 10px
             &-4
                 display: none
                 width: 160px
                 height: 80px
-                background: #aeaeae url(../img/clothes/slide/clothes-4.png) center no-repeat
+                background: $btn-pink url(../img/clothes/slide/clothes-4.png) center no-repeat
                 background-size: 20%
                 border-radius: 10px
             &-5
                 display: none
                 width: 160px
                 height: 80px
-                background: #aeaeae url(../img/clothes/slide/clothes-5.png) center no-repeat
+                background: $btn-pink url(../img/clothes/slide/clothes-5.png) center no-repeat
                 background-size: 20%
                 border-radius: 10px
             &-6
                 display: none
                 width: 160px
                 height: 80px
-                background: #aeaeae url(../img/clothes/slide/clothes-6.png) center no-repeat
+                background: $btn-pink url(../img/clothes/slide/clothes-6.png) center no-repeat
                 background-size: 20%
                 border-radius: 10px
-

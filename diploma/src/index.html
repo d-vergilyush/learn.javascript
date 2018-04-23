@@ -3,6 +3,8 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Выборы</title>
+	<link href="https://fonts.googleapis.com/css?family=Exo+2:400,500,700&amp;subset=cyrillic" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:400,500,700&amp;subset=cyrillic" rel="stylesheet">
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -21,11 +23,13 @@
 				</div>
 				<div class="name">Иванов
 				Виктор Иванович</div>
-				<div class="age">38 лет</div>
-				Пол:
-				<div class="sex">Мужской</div>
-				Полит. взгляды:
-				<div class="views">Левые</div>
+				<div class="age">39 лет</div>
+				<!-- <div>Пол:
+					<div class="sex">Мужской</div>
+				</div> -->
+				
+				<div>Полит. взгляды:
+				<div class="views">Левые</div></div>
 				Биография
 				<div class="bio">13 декабря 2016 года объявил, что намерен баллотироваться на президентских выборах 2018 года, опубликовал основные положения своей предвыборной программы и начал собирать сторонников</div>
 			</div>
@@ -42,19 +46,21 @@
 				<div class="name">петрова
 				ирина сергеевна</div>
 				<div class="age">45 лет</div>
-				Пол:
-				<div class="sex">Женский</div>
-				Полит. взгляды:
-				<div class="views">Либеральные</div>
+				<!-- <div>Пол:
+					<div class="sex">Женский</div>
+				</div> -->
+				
+				<div>Полит. взгляды:
+				<div class="views">Либеральные</div></div>
 				Биография
 				<div class="bio">Ко всем прочим заслугам можно отнести ее активную гражданскую позицию. Еще в конце 2011-го, после выборов в Государственную думу, вошла в десятку самых влиятельных российских женщин, рейтинг которой был составлен радиостанцией «Эхо Москвы»..</div>
 			</div>
 		</div>
 		<div class="main-buttons">
-			<div id="reset" class="btn">сбросить результаты</div>
-			<div id="voting" class="btn">провести честное
+			<div id="reset" data-type="double_swipe" class="btn">сбросить результаты</div>
+			<div id="voting" data-type="double_swipe" class="btn">честное
 			голосование</div>
-			<div id="crime" class="btn">вмешаться в выборы</div>
+			<div id="crime" data-type="double_swipe" class="btn">вмешаться в выборы</div>
 		</div>
 	</div>
 
@@ -62,7 +68,7 @@
 	<div class="overlay">
 	 		<div class="popup">
 				<div class="popup-title">не доволен прошедшими выборами?</div>
-				<div class="popup-subtitle">создай своего кандидата</div>
+				<div class="popup-subtitle">создай своего кандидата!</div>
 				<button id="popup-btn" class="popup-btn">создать</button>
 	 		</div>
 	</div>
