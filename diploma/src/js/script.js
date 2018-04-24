@@ -679,8 +679,6 @@
 						// 	resultCount[0].innerHTML = `${a}%`;
 						// 	resultCount[1].innerHTML = `${b}%`;
 						// 	resultCount[2].innerHTML = `${c}%`;
-
-
 						// };
 						// randomVotes();
 
