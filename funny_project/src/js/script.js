@@ -25,7 +25,6 @@
 				customTools[2].classList.add('animated','slideInDown');
 				customTools[2].style.display = 'block';
 
-
 			}
 
 			create.addEventListener('click', toCustomize);
@@ -57,10 +56,6 @@
 		let maleClothes = ['url(img/clothes/construct/clothes-1.png)', 'url(img/clothes/construct/clothes-22.png)', 'url(img/clothes/construct/clothes-3.png)'];
 		let femaleClothes = ['url(img/clothes/construct/clothes-4.png)', 'url(img/clothes/construct/clothes-5.png)', 'url(img/clothes/construct/clothes-6.png)'];
 		
-
-
-
-
 		function getrand(min, max){
 			return Math.floor(Math.random() * (max - min + 1)) + min;
 		}
