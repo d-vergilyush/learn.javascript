@@ -1,6 +1,6 @@
 	window.addEventListener('DOMContentLoaded', function () {
 
-			//Modal
+			// Modal
 			let overlay = document.querySelector('.overlay');
 			let create = document.querySelector('#popup-btn');
 			let main = document.querySelector('.main');
@@ -35,7 +35,7 @@
 			this.style.display = 'block';
 		};
 
-		//new candidate
+		// new candidate
 
 		let readyBtn = document.querySelector('#ready');
 		let mainCards = document.querySelector('.main-cards');
@@ -105,7 +105,7 @@
 
 			showSlides(slideIndex);
 
-			// функция показа текущего слайда
+			// function for displaying the current slide
 			function showSlides(n) {
 				if (n > slides.length) {
 						slideIndex = 1;
@@ -121,7 +121,7 @@
 
 			}
 
-			//функция для перелистывания
+			// function for switching slides
 			function plusSlides(n) {
 				showSlides(slideIndex += n)	
 			}
@@ -151,7 +151,7 @@
 			let next = document.querySelectorAll('.next')[1];
 			showSlides(slideIndex);
 
-			// функция показа текущего слайда
+			// function for displaying the current slide
 			function showSlides(n) {
 				if (n > slides.length) {
 						slideIndex = 1;
@@ -176,7 +176,7 @@
 
 			}
 
-			//функция для перелистывания
+			// function for switching slides
 			function plusSlides(n) {
 				showSlides(slideIndex += n)	
 			}
@@ -207,7 +207,7 @@
 			let next = document.querySelectorAll('.next')[2];
 			showSlides(slideIndex);
 
-			// функция показа текущего слайда
+			// function for displaying the current slide
 			function showSlides(n) {
 				if (n > slides.length) {
 						slideIndex = 1;
@@ -232,7 +232,7 @@
 
 			}
 
-			//функция для перелистывания
+			// function for switching slides
 			function plusSlides(n) {
 				showSlides(slideIndex += n)	
 			}
@@ -252,7 +252,7 @@
 			newMainCardsItem.classList.remove('main-cards-item-active');
 		};
 
-		//ошибки при заполнении полей
+		// function for error control when filling fields
 
 		let errorMessage = document.createElement('div'); // создали новый элемент
 	 	let customInfo = document.querySelector('.custom-info');
@@ -334,7 +334,7 @@
 													};
 		};
 
-		//---------------------------------------------------
+		//-----------------------------------------------------
 
 		function checkBio() {
 			if (inputBio.value == '') {
@@ -354,10 +354,6 @@
 									errorMessage.style.display = 'none';
 									};
 		};
-
-
-
-
 
 		function checkErrors() {
 				let a = inputName.value.replace(/^\s+/i, '');
@@ -421,9 +417,6 @@
 
 	};
 
-
-
-		
 		readyBtn.addEventListener('click', function() {
 			
 			if (!pattern.test(inputName.value) && inputBio.value.length >= 10 && inputName.value.length >= 2 && isNaN(inputBio.value) && isNaN(inputName.value) && inputName.value != '' && inputAge.value.length == 2 && inputAge.value != '' && inputBio.value != '' && inputAge.value >= 35 && inputAge.value <= 90) {
@@ -498,7 +491,7 @@
 			   
 		});
 
-		//Сбросить результаты
+		// Reset Results
 		
 		let resetBtn = document.querySelector('#reset');
 
@@ -525,7 +518,7 @@
 
 		})
 
-		//Провести честное голосование
+		// fair voting
 		let newOverlay = document.querySelector('.new-overlay');
 		let sorryBtn = document.querySelector('#new-popup-btn');
 		let counter = 0;
@@ -584,7 +577,7 @@
 
 		});
 
-			//вмешаться в выборы
+			// to intervene in voting
 			
 			sorryBtn.addEventListener('click', function() {
 				newOverlay.classList.add('animated','fadeOut');
@@ -686,7 +679,5 @@
 				}
 
 		});
-
-
 
 	})
